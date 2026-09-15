@@ -1,0 +1,20 @@
+{
+  "benchmark_id": "texas-public-candidates-v1",
+  "status": "predictions-frozen-outcomes-unread",
+  "model_commit": "60534b6224bda0b7e60655410e1912a3ce050cbf",
+  "source_filing_snapshot": "TWDB 2026-08-11-7270fa7072e5.xlsx; SHA-256 prefix 7270fa7072e51e70",
+  "predictions": [
+    {"utility":"San Antonio","ranked_actions":[{"action":"acquire_local_interval_data","score":11,"reasons":["Reported NRW is 22.2% with no dominant public-data quality blocker.","Filed annual loss cost is about $79.6M, increasing the value of resolving this finding."]}]},
+    {"utility":"El Paso Water Utilities Public Service Board","ranked_actions":[{"action":"acquire_component_validation_evidence","score":1,"reasons":["Public aggregate filing data do not support a more specific field recommendation."]}]},
+    {"utility":"Plano","ranked_actions":[{"action":"verify_apparent_loss_assumptions","score":10,"reasons":["36.6% of apparent loss is regulator-defaulted.","Filed annual loss cost is about $14.0M, increasing the value of resolving this finding."]}]},
+    {"utility":"Dallas Water","ranked_actions":[{"action":"reconcile_reporting_instability","score":8,"reasons":["Reported loss moves about 5.4 percentage points per year.","Filed annual loss cost is about $12.7M, increasing the value of resolving this finding."]}]},
+    {"utility":"Grand Prairie","ranked_actions":[{"action":"prioritize_localization_pilot","score":12,"reasons":["High reported loss is comparatively stable and not dominated by defaulted apparent-loss components.","Filed annual loss cost is about $11.5M, increasing the value of resolving this finding."]},{"action":"acquire_local_interval_data","score":8,"reasons":["Reported NRW is 25.0% with no dominant public-data quality blocker."]}]},
+    {"utility":"Houston","ranked_actions":[{"action":"verify_apparent_loss_assumptions","score":15,"reasons":["100.0% of apparent loss is regulator-defaulted.","Filed annual loss cost is about $11.1M, increasing the value of resolving this finding."]},{"action":"hold_field_action_for_data_quality","score":8,"reasons":["A majority-defaulted apparent-loss estimate is not strong enough to drive field work."]}]},
+    {"utility":"Fort Worth","ranked_actions":[{"action":"verify_apparent_loss_assumptions","score":15,"reasons":["100.0% of apparent loss is regulator-defaulted.","Filed annual loss cost is about $10.9M, increasing the value of resolving this finding."]},{"action":"hold_field_action_for_data_quality","score":8,"reasons":["A majority-defaulted apparent-loss estimate is not strong enough to drive field work."]}]},
+    {"utility":"Austin","ranked_actions":[{"action":"acquire_component_validation_evidence","score":1,"reasons":["Public aggregate filing data do not support a more specific field recommendation."]}]},
+    {"utility":"Garland","ranked_actions":[{"action":"reconcile_reporting_instability","score":15,"reasons":["Reported loss moves about 7.4 percentage points per year.","Filed annual loss cost is about $9.3M, increasing the value of resolving this finding."]},{"action":"hold_field_action_for_data_quality","score":6,"reasons":["Instability may reflect measurement/reporting changes rather than physical loss."]}]},
+    {"utility":"Mesquite","ranked_actions":[{"action":"acquire_local_interval_data","score":11,"reasons":["Reported NRW is 39.4% with no dominant public-data quality blocker.","Filed annual loss cost is about $8.0M, increasing the value of resolving this finding."]},{"action":"reconcile_reporting_instability","score":5,"reasons":["Reported loss moves about 5.8 percentage points per year."]}]},
+    {"utility":"Corpus Christi","ranked_actions":[{"action":"acquire_component_validation_evidence","score":1,"reasons":["Public aggregate filing data do not support a more specific field recommendation."]}]},
+    {"utility":"Arlington","ranked_actions":[{"action":"acquire_component_validation_evidence","score":1,"reasons":["Public aggregate filing data do not support a more specific field recommendation."]}]}
+  ]
+}
