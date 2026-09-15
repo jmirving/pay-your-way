@@ -1,0 +1,241 @@
+[
+  {
+    "case_id": "onwasa_public_2025_guardrail",
+    "case_group": "onwasa_old_settlers",
+    "kind": "guardrail",
+    "source": {
+      "title": "NC DWR Local Water Supply Plan - ONWASA 2025 (Provisional)",
+      "url": "https://www.ncwater.org/wudc/app/lwsp/report.php?pwsid=04-67-035&year=2025",
+      "publisher": "North Carolina Division of Water Resources"
+    },
+    "evidence": {
+      "scope": "system",
+      "data_quality_uncertain": true,
+      "only_aggregate_data": true
+    },
+    "expected_actions": [
+      "verify_data_quality",
+      "acquire_local_interval_data"
+    ],
+    "outcome": {
+      "known_afterward": "The same provisional filing reports that ONWASA used leak detection with AMI and achieved a 20% loss reduction in one part of the system.",
+      "why_not_used_as_input": "The public filing does not provide the pre-intervention interval/zone data needed to localize the saved water, and it contains contradictory program fields."
+    },
+    "notes": "This case tests restraint: public system-level loss should not trigger a pipe-level field recommendation."
+  },
+  {
+    "case_id": "trousdale_ferry_dma_stage_1",
+    "case_group": "trousdale_ferry_dma",
+    "kind": "development",
+    "source": {
+      "title": "Control and Mitigation of Drinking Water Losses in Distribution Systems",
+      "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1009VCZ.TXT",
+      "publisher": "U.S. Environmental Protection Agency"
+    },
+    "evidence": {
+      "scope": "dma",
+      "minimum_night_flow_gpm": 120,
+      "legitimate_night_consumption_gpm": 33,
+      "main_miles": 56,
+      "dma_metering_available": true,
+      "gis_isolation_available": true
+    },
+    "expected_actions": [
+      "dma_step_test"
+    ],
+    "outcome": {
+      "field_action": "Step testing first separated East/West and then isolated the Southwest sub-area.",
+      "measured_result": "The Southwest sub-area had an estimated 62 gpm of real loss over 14 miles."
+    }
+  },
+  {
+    "case_id": "trousdale_ferry_dma_stage_2",
+    "case_group": "trousdale_ferry_dma",
+    "kind": "development",
+    "source": {
+      "title": "Control and Mitigation of Drinking Water Losses in Distribution Systems",
+      "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1009VCZ.TXT",
+      "publisher": "U.S. Environmental Protection Agency"
+    },
+    "evidence": {
+      "scope": "segment",
+      "localized_segment_ft": 1700
+    },
+    "expected_actions": [
+      "acoustic_pinpoint"
+    ],
+    "outcome": {
+      "field_action": "Ground-microphone investigation located a leak at an old repair clamp.",
+      "estimated_leak_rate_gpm": 65,
+      "estimated_savings_gpd": 94000,
+      "post_repair_minimum_night_flow_gpm": 50
+    }
+  },
+  {
+    "case_id": "pamplin_city_pump_runtime",
+    "case_group": "pamplin_city",
+    "kind": "development",
+    "source": {
+      "title": "Leak Detectives Saving Money, Water in Virginia",
+      "url": "https://www.epa.gov/va/leak-detectives-saving-money-water-virginia",
+      "publisher": "U.S. Environmental Protection Agency"
+    },
+    "evidence": {
+      "scope": "system",
+      "abnormal_pump_runtime": true,
+      "unaccounted_fraction": 0.55
+    },
+    "expected_actions": [
+      "section_isolation"
+    ],
+    "outcome": {
+      "field_action": "A circuit rider isolated sections using a pressure gauge.",
+      "estimated_savings_gpd": 10000,
+      "leak_location": "Flush valve off an 8-inch main that had been covered with fill."
+    }
+  },
+  {
+    "case_id": "freeman_toyota_continuous_flow",
+    "case_group": "freeman_toyota",
+    "kind": "development",
+    "source": {
+      "title": "Improving Water Management Using Advanced Metering Infrastructure Data",
+      "url": "https://www.epa.gov/system/files/documents/2022-09/ws-commercial-ami-guide-facility-managers.pdf",
+      "publisher": "U.S. Environmental Protection Agency WaterSense"
+    },
+    "evidence": {
+      "scope": "facility",
+      "ami_available": true,
+      "continuous_flow_gph": 140,
+      "continuous_duration_hours": 48
+    },
+    "expected_actions": [
+      "facility_inspection"
+    ],
+    "outcome": {
+      "field_action": "Onsite audit found toilet leaks; further isolation found a malfunctioning car-wash recirculation system.",
+      "measured_reduction_fraction": 0.5
+    }
+  },
+  {
+    "case_id": "coddington_center_stage_1",
+    "case_group": "coddington_center",
+    "kind": "development",
+    "source": {
+      "title": "Improving Water Management Using Advanced Metering Infrastructure Data",
+      "url": "https://www.epa.gov/system/files/documents/2022-09/ws-commercial-ami-guide-facility-managers.pdf",
+      "publisher": "U.S. Environmental Protection Agency WaterSense"
+    },
+    "evidence": {
+      "scope": "facility",
+      "ami_available": true,
+      "continuous_flow_gph": 1000,
+      "bill_multiplier": 2.0
+    },
+    "expected_actions": [
+      "facility_inspection"
+    ],
+    "outcome": {
+      "field_action": "Facility inspection found no obvious source; restaurant submeter data then narrowed the investigation."
+    }
+  },
+  {
+    "case_id": "coddington_center_stage_2",
+    "case_group": "coddington_center",
+    "kind": "development",
+    "source": {
+      "title": "Improving Water Management Using Advanced Metering Infrastructure Data",
+      "url": "https://www.epa.gov/system/files/documents/2022-09/ws-commercial-ami-guide-facility-managers.pdf",
+      "publisher": "U.S. Environmental Protection Agency WaterSense"
+    },
+    "evidence": {
+      "scope": "facility",
+      "ami_available": true,
+      "continuous_flow_gph": 1000,
+      "submeter_signal": true
+    },
+    "expected_actions": [
+      "acoustic_pinpoint"
+    ],
+    "outcome": {
+      "field_action": "A leak-detection company located a mainline break beneath a restaurant slab."
+    }
+  },
+  {
+    "case_id": "coddington_center_stage_3",
+    "case_group": "coddington_center",
+    "kind": "development",
+    "source": {
+      "title": "Improving Water Management Using Advanced Metering Infrastructure Data",
+      "url": "https://www.epa.gov/system/files/documents/2022-09/ws-commercial-ami-guide-facility-managers.pdf",
+      "publisher": "U.S. Environmental Protection Agency WaterSense"
+    },
+    "evidence": {
+      "scope": "facility",
+      "ami_available": true,
+      "continuous_flow_gph": 1000,
+      "submeter_signal": true,
+      "repair_attempted_signal_persists": true
+    },
+    "expected_actions": [
+      "continue_investigation"
+    ],
+    "outcome": {
+      "field_action": "Two additional mainline breaks were found after the first repair because interval data showed continuous use had not returned to normal.",
+      "measured_result": "Ultimately saved thousands of gallons per day."
+    }
+  },
+  {
+    "case_id": "albuquerque_schools_ami_program",
+    "case_group": "albuquerque_public_schools",
+    "kind": "development",
+    "source": {
+      "title": "Improving Water Management Using Advanced Metering Infrastructure Data",
+      "url": "https://www.epa.gov/system/files/documents/2022-09/ws-commercial-ami-guide-facility-managers.pdf",
+      "publisher": "U.S. Environmental Protection Agency WaterSense"
+    },
+    "evidence": {
+      "scope": "portfolio",
+      "ami_available": true,
+      "continuous_flow_gph": 300,
+      "continuous_duration_hours": 24
+    },
+    "expected_actions": [
+      "rank_ami_continuous_use"
+    ],
+    "outcome": {
+      "field_action": "More than 100 indoor/outdoor leak inspections found more than 400 leaks.",
+      "example_leak_gph": 1000,
+      "baseline_continuous_flow_gph": 300,
+      "post_program_continuous_flow_gph_lt": 25
+    }
+  },
+  {
+    "case_id": "gallitzin_baseline_first",
+    "case_group": "gallitzin_pa",
+    "kind": "development",
+    "source": {
+      "title": "Cases in Water Conservation - Gallitzin, Pennsylvania",
+      "url": "https://www.epa.gov/sites/default/files/2017-03/documents/ws-cases-in-water-conservation.pdf",
+      "publisher": "U.S. Environmental Protection Agency"
+    },
+    "evidence": {
+      "scope": "system",
+      "unaccounted_fraction": 0.7,
+      "records_reliable": false,
+      "system_map_available": false,
+      "low_pressure_complaints": true
+    },
+    "expected_actions": [
+      "establish_baseline_and_map"
+    ],
+    "outcome": {
+      "field_action": "The utility first established accurate 7-day production/distribution records and a system map, then used leak detection and repair.",
+      "baseline_production_gpd": 309929,
+      "post_program_production_gpd": 127893,
+      "post_program_unaccounted_fraction": 0.09,
+      "annual_power_cost_savings_usd": 20000,
+      "annual_chemical_cost_savings_usd": 5000
+    }
+  }
+]
