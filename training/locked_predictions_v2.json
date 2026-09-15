@@ -1,0 +1,20 @@
+{
+  "benchmark_id": "texas-public-candidates-v2",
+  "status": "predictions-frozen-outcomes-unread",
+  "model_commit": "6bd631c1e6a05095205dbbe159328c2ed6fa6f31",
+  "source_filing_snapshot": "TWDB 2026-08-11-7270fa7072e5.xlsx; SHA-256 prefix 7270fa7072e51e70",
+  "predictions": [
+    {"utility":"Richardson","ranked_actions":[{"action":"prioritize_localization_pilot","score":14},{"action":"acquire_local_interval_data","score":9}]},
+    {"utility":"Tyler","ranked_actions":[{"action":"real_loss_below_tx_mitigation_threshold","score":2}]},
+    {"utility":"Midland Water Purification Plant","ranked_actions":[{"action":"real_loss_below_tx_mitigation_threshold","score":2}]},
+    {"utility":"Port Arthur","ranked_actions":[{"action":"prioritize_localization_pilot","score":14},{"action":"acquire_local_interval_data","score":9}]},
+    {"utility":"Lubbock Public","ranked_actions":[{"action":"real_loss_below_tx_mitigation_threshold","score":2}]},
+    {"utility":"McKinney","ranked_actions":[{"action":"verify_apparent_loss_assumptions","score":13},{"action":"acquire_main_length_for_threshold","score":10}]},
+    {"utility":"Northwest Park MUD","ranked_actions":[{"action":"prioritize_localization_pilot","score":14},{"action":"verify_apparent_loss_assumptions","score":11},{"action":"acquire_local_interval_data","score":9}]},
+    {"utility":"Frisco","ranked_actions":[{"action":"real_loss_below_tx_mitigation_threshold","score":2}]},
+    {"utility":"Eagle Pass","ranked_actions":[{"action":"acquire_main_length_for_threshold","score":12},{"action":"verify_apparent_loss_assumptions","score":7}]},
+    {"utility":"Baytown","ranked_actions":[{"action":"real_loss_below_tx_mitigation_threshold","score":2}]},
+    {"utility":"Georgetown","ranked_actions":[{"action":"verify_apparent_loss_assumptions","score":9},{"action":"real_loss_below_tx_mitigation_threshold","score":2}]},
+    {"utility":"Killeen","ranked_actions":[{"action":"prioritize_localization_pilot","score":14},{"action":"acquire_local_interval_data","score":9}]}
+  ]
+}
