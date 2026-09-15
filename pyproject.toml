@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pay-your-way"
+version = "0.1.0"
+description = "Auditable AI-assisted climate and water interventions, starting with small-system water loss triage."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+pay-your-way = "pay_your_way.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
