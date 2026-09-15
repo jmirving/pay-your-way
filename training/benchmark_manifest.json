@@ -1,0 +1,19 @@
+{
+  "benchmark_id": "twdb-2021-development-v1",
+  "status": "development-contaminated",
+  "frozen_from_commit": "6c38206c27adf3c692a03d3576dd2a281461cccd",
+  "source": "Texas Water Loss Audit Validation Study (TWDB contract 2100012468, 2021)",
+  "note": "The study outcomes were exposed during source discovery, so these utilities MUST NOT be reported as locked holdout performance. They are development cases only.",
+  "utilities": [
+    "City of Plainview",
+    "Johnson County Special Utility District",
+    "City of Stephenville",
+    "City of Ladonia",
+    "City of Marshall",
+    "Southern Utilities Company",
+    "Aqua Water Supply Corporation",
+    "Crystal Clear Special Utility District",
+    "City of San Marcos",
+    "City of Alpine"
+  ]
+}
