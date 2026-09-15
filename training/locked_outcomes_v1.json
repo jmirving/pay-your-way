@@ -1,0 +1,19 @@
+{
+  "benchmark_id": "texas-public-candidates-v1",
+  "status": "outcomes-revealed",
+  "rubric_commit": "839e54e5fd696629b20795534fef366314a7fdba",
+  "labels": [
+    {"utility":"San Antonio","label":"localization_or_loss_control_supported","strict_score":false,"reason":"Outcome context was exposed before the scoring rubric was frozen; retained only as exploratory evidence."},
+    {"utility":"El Paso Water Utilities Public Service Board","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.epwater.org/water-loss-management","evidence":"Utility reports acoustic main-leak detection, condition assessment, and leak-detecting meter technology."},
+    {"utility":"Plano","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.plano.gov/asset/a6d0f119-7afa-4905-9fe6-5051d1be6058","evidence":"2024 Water Management Plan explicitly includes routine real-loss control and a leak detection and repair program."},
+    {"utility":"Dallas Water","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://dallascityhall.com/government/citymanager/Documents/FY25-26%20Memos/Combined%20Memos_04102026.pdf","evidence":"DWU reports systemwide leak detection using multiple technologies, condition assessment, and pipeline replacement."},
+    {"utility":"Grand Prairie","label":"unscored-no-public-label","strict_score":false,"reason":"Public sources found during this pass were insufficient to establish a system-level validation/action label under the frozen rubric."},
+    {"utility":"Houston","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.houstontx.gov/citysec/agenda/2026/Apr2126.pdf","evidence":"Official 2026 agenda funds intrusion, pipe-burst, and leak-detection sensor technology for Houston Public Works."},
+    {"utility":"Fort Worth","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.fortworthtexas.gov/departments/water/about-us/annual-report","evidence":"FY2025 report documents acoustic sensors, DMAs, SCADA and AMI; 226 repaired leaks were estimated to save 46 million gallons."},
+    {"utility":"Austin","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.twdb.texas.gov/board/2026/02/Board/Brd14.pdf","evidence":"TWDB records completed 2024 audit validation plus Austin's acoustic leak-detection, aging-main replacement and AMI programs."},
+    {"utility":"Garland","label":"unscored-no-public-label","strict_score":false,"reason":"A current system-level loss-control/validation outcome adequate for the frozen rubric was not found in this pass."},
+    {"utility":"Mesquite","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.cityofmesquite.com/DocumentCenter/View/27143/2024-City-of-Mesquite-Water-Conservation-Plan","evidence":"2024 plan makes leak detection/repair and water-loss control part of utility operations."},
+    {"utility":"Corpus Christi","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.corpuschristitx.gov/media/joihrle1/water-quality-ccr-report-2024-online-june-2025-final.pdf","evidence":"2024 utility report describes strategic leak detection and rapid response as part of comprehensive water conservation."},
+    {"utility":"Arlington","label":"localization_or_loss_control_supported","strict_score":true,"source":"https://www.arlingtontx.gov/News-Articles/2025/November/Arlington-Water-Utilities-Uses-Satellites-to-Detect-Leaks-Save-Water","evidence":"Utility reports satellite candidate generation followed by field leak investigation/repair with measured water-cost and gallon savings."}
+  ]
+}
