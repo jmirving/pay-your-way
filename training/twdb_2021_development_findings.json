@@ -1,0 +1,17 @@
+{
+  "source": "https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/2100012468.pdf",
+  "status": "development-contaminated",
+  "note": "Normalized from the 2021 TWDB study after outcome exposure. These cases may shape rules/taxonomy but may never count as unseen benchmark performance.",
+  "cases": [
+    {"utility":"City of Plainview","pre_validation_score":78.0,"pre_real_loss_gcd":20.25,"pre_apparent_loss_gcd":16.09,"pre_ili":1.35,"finding_categories":["supply_meter_accuracy","authorized_consumption_categorization","unbilled_unmetered_customization","customer_meter_testing"]},
+    {"utility":"City of Stephenville","pre_validation_score":71.0,"pre_real_loss_gcd":15.4,"pre_apparent_loss_gcd":5.3,"pre_ili":0.9,"finding_categories":["advanced_validation_low_ili","supply_or_scada_verification","authorized_consumption_alignment","pressure_verification"]},
+    {"utility":"City of Ladonia","pre_validation_score":44.0,"pre_real_loss_gcd":132.18,"pre_apparent_loss_gcd":3.5,"finding_categories":["supply_meter_accuracy","level2_bmac_validation","variable_cost_review","conditional_leakage_survey"]},
+    {"utility":"City of Marshall","pre_validation_score":0.0,"pre_real_loss_gcd":0.0,"pre_apparent_loss_gcd":0.0,"pre_ili":0.0,"finding_categories":["supply_meter_accuracy","authorized_consumption_categorization","level2_bmac_validation","customer_meter_testing","retail_cost_calculation","variable_cost_review"]},
+    {"utility":"Southern Utilities","pre_validation_score":79.5,"pre_real_loss_gcd":117.3,"pre_apparent_loss_gcd":6.8,"pre_ili":3.8,"finding_categories":["supply_meter_accuracy","pressure_verification","level2_bmac_validation","customer_meter_testing","retail_cost_calculation","variable_cost_review"]},
+    {"utility":"Aqua WSC","pre_validation_score":79.0,"pre_real_loss_gcd":75.6,"pre_apparent_loss_gcd":6.7,"finding_categories":["supply_meter_accuracy","level2_bmac_validation","customer_meter_testing","system_mapping_and_source_docs"]},
+    {"utility":"Crystal Clear SUD","pre_validation_score":81.5,"pre_real_loss_gcd":92.0,"pre_apparent_loss_gcd":14.4,"pre_ili":2.0,"finding_categories":["unbilled_unmetered_customization","supply_meter_accuracy","authorized_consumption_alignment","level2_bmac_validation","customer_meter_testing"]},
+    {"utility":"Johnson County SUD","pre_validation_score":65.0,"pre_real_loss_gcd":45.7,"pre_apparent_loss_gcd":5.8,"pre_ili":1.4,"finding_categories":["unbilled_unmetered_customization","supply_meter_accuracy","authorized_consumption_alignment","customer_meter_testing"]},
+    {"utility":"City of San Marcos","pre_validation_score":84.5,"pre_real_loss_gcd":22.98,"pre_apparent_loss_gcd":2.37,"pre_ili":0.99,"finding_categories":["supply_meter_accuracy","weighted_supply_meter_accuracy","level2_authorized_consumption_validation","customer_meter_testing","retail_cost_calculation","variable_cost_review"]},
+    {"utility":"City of Alpine","pre_validation_score":41.5,"pre_real_loss_gcd":140.0,"pre_apparent_loss_gcd":19.5,"pre_ili":6.94,"finding_categories":["supply_meter_accuracy","level2_bmac_validation","customer_meter_testing","conditional_leakage_survey"]}
+  ]
+}
