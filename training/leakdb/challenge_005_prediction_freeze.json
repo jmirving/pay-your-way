@@ -1,0 +1,42 @@
+{
+  "challenge_id": "leakdb-net1-sealed-005",
+  "workflow_run_id": 35119878074,
+  "workflow_head_sha": "5d0b3a0c0709542334671eef158bcfa7141e9885",
+  "prediction_artifact": {
+    "id": 10456699788,
+    "github_digest": "sha256:ad9442e64aeeb39bda1304dca8bf3562fb64e13487b20e9e3468464feb2229e7",
+    "predictions_npz_sha256": "3975f2eb8cc3a96f5709cc4705bb01f788ef8f6fc46e897d151455ba7d01551d",
+    "prediction_report_sha256": "25dcc2421a949abc2e693b54b55ef1b783660f14846f8f35a78d4c91c21f940b",
+    "challenge_manifest_sha256": "723cc466e6c302de7c1d378827d2c636a0f396e10ae83656c9ab98eedc1a4383"
+  },
+  "withheld_label_artifact": {
+    "id": 10457074637,
+    "github_digest": "sha256:9ee5e1e23837408f66cde15fdaae88829884df4c76363fbd614fe726bb13c6b7",
+    "status": "NOT_RETRIEVED_AT_FREEZE"
+  },
+  "algorithm": "LeakDB-Net1 multi-cohort robust-calibrated dual-output HGB v5",
+  "method_change": "Calibration uses disjoint alternating slices from challenges 001-004 and optimizes worst-cohort performance under per-cohort nuisance constraints. The model is not refit after calibration.",
+  "development_count": 160,
+  "training_count": 90,
+  "validation_count": 70,
+  "state": {
+    "smooth_window": 12,
+    "threshold": 0.525,
+    "validation_worst_f1": 0.867129605638182,
+    "validation_worst_event_recall": 0.7777777777777778,
+    "validation_max_no_leak_positive_fraction": 0.019463470319634704
+  },
+  "alert": {
+    "trigger_smooth_window": 1,
+    "trigger_threshold": 0.725,
+    "hold_steps": 8,
+    "validation_worst_early_score": 0.6470502451015585,
+    "validation_max_no_leak_positive_fraction": 0.01800799086757991,
+    "validation_max_no_leak_alert_episodes_per_30d": 2.589041095890411
+  },
+  "holdout_scenario_ids": [102,123,133,147,154,156,173,176,217,218,221,291,295,312,354,366,390,392,398,406,408,419,422,443,445,450,462,506,559,570,575,578,593,617,620,626,628,638,652,658,663,675,678,719,755,759,762,766,794,818,826,860,865,876,896,916,945,957,971,981],
+  "prediction_distribution": {
+    "state_positive_fraction_quantiles": {"min": 0.0, "p25": 0.005622, "median": 0.09141, "p75": 0.24821625, "max": 0.765068},
+    "alert_positive_fraction_quantiles": {"min": 0.0, "p25": 0.01178625, "median": 0.105223, "p75": 0.248644, "max": 0.764954}
+  }
+}
