@@ -1,0 +1,46 @@
+{
+  "challenge_id": "leakdb-net1-sealed-001",
+  "workflow_run_id": 35038579468,
+  "workflow_head_sha": "c9212d9355a264c86267840c9e800025decd0273",
+  "prediction_artifact": {
+    "id": 10423934271,
+    "github_digest": "sha256:e00fc8f87a211472a292059df6542201b4b00d0c9b88f9be94862081bc4f7953",
+    "predictions_npz_sha256": "f8f3ed15ba59eb8e3f0b94ede95c2d4a1d95cd92c1114119446badfad7c8e58e"
+  },
+  "withheld_label_artifact": {
+    "id": 10424143660,
+    "github_digest": "sha256:1cde5a55ac48f684c8a7e1283e1c08a3c25b0b16783acb1c6919bacc8b0bfb94",
+    "status": "NOT_RETRIEVED_AT_FREEZE"
+  },
+  "algorithm": "LeakDB-Net1 HGB v1",
+  "threshold": 0.85,
+  "development_validation": {
+    "precision": 0.968422056859378,
+    "recall": 0.3913412236400787,
+    "f1": 0.5574256610197414,
+    "true_negative_rate": 0.9958197042219724
+  },
+  "holdout_scenario_ids": [155,163,209,245,332,401,430,437,512,526,555,577,706,726,730,772,837,872,923,934],
+  "prediction_summary": [
+    {"scenario_id":155,"timesteps":17520,"positive_steps":15532,"positive_fraction":0.88653,"max_probability":0.999903},
+    {"scenario_id":163,"timesteps":17520,"positive_steps":2889,"positive_fraction":0.164897,"max_probability":0.999806},
+    {"scenario_id":209,"timesteps":17520,"positive_steps":1173,"positive_fraction":0.066952,"max_probability":0.925341},
+    {"scenario_id":245,"timesteps":17520,"positive_steps":4167,"positive_fraction":0.237842,"max_probability":0.950759},
+    {"scenario_id":332,"timesteps":17520,"positive_steps":6742,"positive_fraction":0.384817,"max_probability":0.999913},
+    {"scenario_id":401,"timesteps":17520,"positive_steps":3812,"positive_fraction":0.21758,"max_probability":0.999832},
+    {"scenario_id":430,"timesteps":17520,"positive_steps":1065,"positive_fraction":0.060788,"max_probability":0.999854},
+    {"scenario_id":437,"timesteps":17520,"positive_steps":2406,"positive_fraction":0.137329,"max_probability":0.98111},
+    {"scenario_id":512,"timesteps":17520,"positive_steps":7266,"positive_fraction":0.414726,"max_probability":0.999858},
+    {"scenario_id":526,"timesteps":17520,"positive_steps":7849,"positive_fraction":0.448002,"max_probability":0.999906},
+    {"scenario_id":555,"timesteps":17520,"positive_steps":6040,"positive_fraction":0.344749,"max_probability":0.999951},
+    {"scenario_id":577,"timesteps":17520,"positive_steps":863,"positive_fraction":0.049258,"max_probability":0.999883},
+    {"scenario_id":706,"timesteps":17520,"positive_steps":113,"positive_fraction":0.00645,"max_probability":0.999953},
+    {"scenario_id":726,"timesteps":17520,"positive_steps":0,"positive_fraction":0.0,"max_probability":0.749253},
+    {"scenario_id":730,"timesteps":17520,"positive_steps":3197,"positive_fraction":0.182477,"max_probability":0.999904},
+    {"scenario_id":772,"timesteps":17520,"positive_steps":0,"positive_fraction":0.0,"max_probability":0.775955},
+    {"scenario_id":837,"timesteps":17520,"positive_steps":2662,"positive_fraction":0.151941,"max_probability":0.991287},
+    {"scenario_id":872,"timesteps":17520,"positive_steps":618,"positive_fraction":0.035274,"max_probability":0.999852},
+    {"scenario_id":923,"timesteps":17520,"positive_steps":7866,"positive_fraction":0.448973,"max_probability":0.999784},
+    {"scenario_id":934,"timesteps":17520,"positive_steps":10084,"positive_fraction":0.575571,"max_probability":0.999862}
+  ]
+}
