@@ -20,3 +20,7 @@ The artifact separation is procedural rather than cryptographic isolation from G
 ## Current scope
 
 The first sealed challenge evaluates **leak presence/detection**, not pipe-level localization. The detector is trained on Net1 scenarios and reports binary time-step metrics plus event recall within ten 30-minute steps of onset. Localization is the next extension after the sealed detection harness is proven.
+
+## Automation status
+
+The workflow and detector are committed. This documentation-only change intentionally triggers the first sealed challenge after the workflow already exists on the branch, avoiding GitHub's new-workflow-on-first-push scheduling edge case.
