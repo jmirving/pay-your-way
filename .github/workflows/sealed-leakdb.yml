@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/sealed-leakdb.yml
       - training/leakdb_sealed.py
+      - training/leakdb_acquire.py
       - training/leakdb/**
 
 jobs:
@@ -24,7 +25,7 @@ jobs:
       - name: Install benchmark dependencies
         run: python -m pip install "water-benchmark-hub==0.4.0" "scikit-learn>=1.5,<2"
       - name: Prepare sealed LeakDB challenge
-        run: python training/leakdb_sealed.py prepare --out-dir challenge_work --dev-count 20 --holdout-count 20
+        run: python training/leakdb_acquire.py --out-dir challenge_work --dev-count 20 --holdout-count 20
       - name: Fit development model and predict sealed scenarios
         run: python training/leakdb_sealed.py predict --out-dir challenge_work
       - name: Capture environment
