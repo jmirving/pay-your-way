@@ -12,6 +12,7 @@ on:
       - training/leakdb_acquire_v3.py
       - training/leakdb_predict_v2.py
       - training/leakdb_predict_v3.py
+      - training/leakdb_predict_v4.py
       - training/leakdb_score_v3.py
       - training/leakdb/**
 
@@ -29,10 +30,10 @@ jobs:
           cache: pip
       - name: Install benchmark dependencies
         run: python -m pip install "water-benchmark-hub==0.4.0" "scikit-learn>=1.5,<2"
-      - name: Prepare sealed LeakDB challenge 003
-        run: python training/leakdb_acquire_v3.py --out-dir challenge_work --holdout-count 40 --burned-through 2 --challenge-id leakdb-net1-sealed-003
-      - name: Fit v3 state and alert models and predict sealed scenarios
-        run: python training/leakdb_predict_v3.py --out-dir challenge_work
+      - name: Prepare sealed LeakDB challenge 004
+        run: python training/leakdb_acquire_v3.py --out-dir challenge_work --holdout-count 50 --burned-through 3 --challenge-id leakdb-net1-sealed-004
+      - name: Fit calibration-stable v4 model and predict sealed scenarios
+        run: python training/leakdb_predict_v4.py --out-dir challenge_work
       - name: Capture environment
         run: python -m pip freeze > challenge_work/public/environment.txt
       - name: Upload prediction artifact
