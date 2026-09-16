@@ -1,0 +1,52 @@
+{
+  "challenge_id": "leakdb-net1-sealed-004",
+  "workflow_run_id": 35118930118,
+  "workflow_head_sha": "2328fe3ce0578c9460114535a8a721c15a8ff9f0",
+  "prediction_artifact": {
+    "id": 10456297565,
+    "github_digest": "sha256:df8b71211094edc46acc0e8be8b26b48c8c96843c7148235e275b9dabbad09e4",
+    "predictions_npz_sha256": "9d49286d69464e1bbe08b7ed7a9723d7a127d3b98b1fbcb0cd9cf89c65a58e8c",
+    "prediction_report_sha256": "89f7b1149f175b52d6714bb051a21331d7aa1aea4f476a6b4d09cde81df326b8",
+    "challenge_manifest_sha256": "dfe1f74bdad6af2011770550977981ad2d5534afafc36868fe99b909806c3f13"
+  },
+  "withheld_label_artifact": {
+    "id": 10455952777,
+    "github_digest": "sha256:3da7c8db85faf996a31935c9e8e11be55109f9399ae0014f7ce3d4b4762cc2ea",
+    "status": "NOT_RETRIEVED_AT_FREEZE"
+  },
+  "algorithm": "LeakDB-Net1 calibration-stable dual-output HGB v4",
+  "method_change": "The fitted model was calibrated on a disjoint burned challenge-003 subset and was not refit after calibration.",
+  "development_count": 110,
+  "training_count": 90,
+  "validation_count": 20,
+  "state": {
+    "smooth_window": 12,
+    "threshold": 0.2,
+    "validation_metrics": {
+      "precision": 0.8355470173230433,
+      "recall": 0.5554124420665588,
+      "f1": 0.6672706472070309,
+      "true_negative_rate": 0.9617433917777187
+    },
+    "validation_no_leak_positive_fraction": 0.011957762557077626
+  },
+  "alert": {
+    "trigger_smooth_window": 1,
+    "trigger_threshold": 0.375,
+    "hold_steps": 8,
+    "validation": {
+      "early_score": 0.7261561573658206,
+      "events": 21,
+      "no_leak_positive_fraction": 0.019506278538812784,
+      "no_leak_alert_episodes_per_30d": 2.773972602739726,
+      "step_metrics": {
+        "precision": 0.7926898452062566,
+        "recall": 0.5383819368759426,
+        "f1": 0.6412424933784386,
+        "true_negative_rate": 0.9507248721890253
+      },
+      "feasible": true
+    }
+  },
+  "holdout_scenario_ids": [114,118,141,143,181,186,193,204,228,268,270,273,280,353,394,397,415,416,444,452,470,475,485,493,536,571,591,599,615,633,671,676,700,712,722,723,756,778,793,804,813,831,882,887,939,946,947,955,975,997]
+}
