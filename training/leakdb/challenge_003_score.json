@@ -1,0 +1,60 @@
+{
+  "challenge_id": "leakdb-net1-sealed-003",
+  "prediction_freeze_commit": "9cce7572d49d3162549001f2def29deb480d7151",
+  "workflow_run_id": 35117972685,
+  "label_artifact": {
+    "id": 10456661162,
+    "github_digest": "sha256:9b5a6a77b306cfe62443406d52ac23fa52a3efd53f3df0d0826926831da86852",
+    "labels_npz_sha256": "760b2a662c9b96aeafeea49f6bcb3e581eb53ae16941a2a1a380e2b1537ea1c6"
+  },
+  "scenario_count": 40,
+  "events": 39,
+  "state": {
+    "aggregate": {
+      "tp": 104031,
+      "tn": 536930,
+      "fp": 410,
+      "fn": 59429,
+      "precision": 0.9960743386218056,
+      "recall": 0.6364309311146458,
+      "f1": 0.7766376385306512,
+      "true_negative_rate": 0.9992369821714371,
+      "accuracy": 0.914613299086758
+    },
+    "events_with_any_detection_within_10_steps": 38,
+    "any_detection_event_recall": 0.9743589743589743,
+    "official_early_detection_score": 0.5116102339842886,
+    "no_leak_false_positive_fraction": 0.0001355593607305936
+  },
+  "alert": {
+    "aggregate": {
+      "tp": 111666,
+      "tn": 536101,
+      "fp": 1239,
+      "fn": 51794,
+      "precision": 0.9890261724458616,
+      "recall": 0.6831396060198214,
+      "f1": 0.8081052231650173,
+      "true_negative_rate": 0.9976941973424648,
+      "accuracy": 0.9243250570776256
+    },
+    "events_with_any_detection_within_10_steps": 38,
+    "any_detection_event_recall": 0.9743589743589743,
+    "official_early_detection_score": 0.7052208333679528,
+    "no_leak_false_positive_fraction": 0.0010987442922374428,
+    "no_leak_alert_episodes_per_30d": 0.18493150684931506
+  },
+  "interpretation": {
+    "success": "The independent alert policy generalized: strict early-warning score rose from 0.258 in challenge 002 to 0.705 while nuisance burden remained very low.",
+    "failure": "The state classifier became over-conservative on new leakage signatures: precision remained near-perfect but recall fell to 0.636 and F1 to 0.777.",
+    "next_iteration": "Promote challenge 003 to burned development data, train on a stratified subset of its new signatures, calibrate state/alert on the remainder, and test on a disjoint challenge 004 holdout without refitting after calibration."
+  },
+  "notable_state_recall_failures": {
+    "715": 0.084,
+    "912": 0.124,
+    "373": 0.206,
+    "523": 0.218,
+    "746": 0.221,
+    "996": 0.260
+  }
+}
