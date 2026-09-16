@@ -1,0 +1,92 @@
+{
+  "challenge_id": "leakdb-net1-sealed-003",
+  "workflow_run_id": 35117972685,
+  "workflow_head_sha": "e80b1eeac4a3eb1489547a5e1ae4e206343cad22",
+  "prediction_artifact": {
+    "id": 10457045988,
+    "github_digest": "sha256:6a98730ea6b5109cf8a73253049d08758054adb4443828a37eee776658331aab",
+    "predictions_npz_sha256": "90808c6f2aebe28f6e75ff576d18ffebb85e67329c36ecdcefea6ba952b53669",
+    "prediction_report_sha256": "4ac04ba1a94df2810491ce3afb34b52a8fb3d340c06591796d69c0da9007a11e",
+    "challenge_manifest_sha256": "ac800d164947bd7c1a8048bc21be1c5599874c87e2fa0cd0b80951941ed8e702"
+  },
+  "withheld_label_artifact": {
+    "id": 10456661162,
+    "github_digest": "sha256:9b5a6a77b306cfe62443406d52ac23fa52a3efd53f3df0d0826926831da86852",
+    "status": "NOT_RETRIEVED_AT_FREEZE"
+  },
+  "algorithm": "LeakDB-Net1 dual-output local-calibrated HGB v3",
+  "state": {
+    "smooth_window": 1,
+    "threshold": 0.85,
+    "validation_metrics": {
+      "precision": 0.9933414102253453,
+      "recall": 0.8792649342404406,
+      "f1": 0.9328284850912003,
+      "true_negative_rate": 0.998320453550884
+    },
+    "validation_no_leak_positive_fraction": 0.0006992009132420091
+  },
+  "alert": {
+    "trigger_smooth_window": 1,
+    "trigger_threshold": 0.8250000000000002,
+    "hold_steps": 8,
+    "validation": {
+      "early_score": 0.7140648435511567,
+      "events": 29,
+      "no_leak_positive_fraction": 0.00442351598173516,
+      "no_leak_alert_episodes_per_30d": 0.5958904109589042,
+      "step_metrics": {
+        "precision": 0.9766391132819838,
+        "recall": 0.8920050445689381,
+        "f1": 0.9324054685433211,
+        "true_negative_rate": 0.9939198951689203
+      },
+      "feasible": true,
+      "fallback_objective": 0.6933000033685083
+    }
+  },
+  "development_count": 70,
+  "holdout_scenario_ids": [128,139,142,179,184,185,201,226,250,304,314,365,372,373,442,449,503,523,530,535,576,581,597,612,622,651,654,661,677,715,746,758,801,844,898,912,951,967,980,996],
+  "prediction_summary": [
+    {"scenario_id":128,"timesteps":17520,"state_positive_steps":3242,"state_positive_fraction":0.185046,"alert_positive_steps":3264,"alert_positive_fraction":0.186301,"max_raw_probability":0.999057},
+    {"scenario_id":139,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.813153},
+    {"scenario_id":142,"timesteps":17520,"state_positive_steps":4755,"state_positive_fraction":0.271404,"alert_positive_steps":5120,"alert_positive_fraction":0.292237,"max_raw_probability":0.999851},
+    {"scenario_id":179,"timesteps":17520,"state_positive_steps":1244,"state_positive_fraction":0.071005,"alert_positive_steps":1335,"alert_positive_fraction":0.076199,"max_raw_probability":0.999877},
+    {"scenario_id":184,"timesteps":17520,"state_positive_steps":562,"state_positive_fraction":0.032078,"alert_positive_steps":610,"alert_positive_fraction":0.034817,"max_raw_probability":0.999863},
+    {"scenario_id":185,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.236887},
+    {"scenario_id":201,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.231154},
+    {"scenario_id":226,"timesteps":17520,"state_positive_steps":1166,"state_positive_fraction":0.066553,"alert_positive_steps":1207,"alert_positive_fraction":0.068893,"max_raw_probability":0.999825},
+    {"scenario_id":250,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.475626},
+    {"scenario_id":304,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.31772},
+    {"scenario_id":314,"timesteps":17520,"state_positive_steps":2755,"state_positive_fraction":0.157249,"alert_positive_steps":2846,"alert_positive_fraction":0.162443,"max_raw_probability":0.99987},
+    {"scenario_id":365,"timesteps":17520,"state_positive_steps":448,"state_positive_fraction":0.025571,"alert_positive_steps":459,"alert_positive_fraction":0.026199,"max_raw_probability":0.999755},
+    {"scenario_id":372,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.229952},
+    {"scenario_id":373,"timesteps":17520,"state_positive_steps":1170,"state_positive_fraction":0.066781,"alert_positive_steps":1191,"alert_positive_fraction":0.067979,"max_raw_probability":0.999802},
+    {"scenario_id":442,"timesteps":17520,"state_positive_steps":6293,"state_positive_fraction":0.359189,"alert_positive_steps":6624,"alert_positive_fraction":0.378082,"max_raw_probability":0.999841},
+    {"scenario_id":449,"timesteps":17520,"state_positive_steps":1147,"state_positive_fraction":0.065468,"alert_positive_steps":1164,"alert_positive_fraction":0.066438,"max_raw_probability":0.999652},
+    {"scenario_id":503,"timesteps":17520,"state_positive_steps":5000,"state_positive_fraction":0.285388,"alert_positive_steps":5014,"alert_positive_fraction":0.286187,"max_raw_probability":0.99987},
+    {"scenario_id":523,"timesteps":17520,"state_positive_steps":3549,"state_positive_fraction":0.202568,"alert_positive_steps":3586,"alert_positive_fraction":0.20468,"max_raw_probability":0.999875},
+    {"scenario_id":530,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.335629},
+    {"scenario_id":535,"timesteps":17520,"state_positive_steps":4978,"state_positive_fraction":0.284132,"alert_positive_steps":5026,"alert_positive_fraction":0.286872,"max_raw_probability":0.99989},
+    {"scenario_id":576,"timesteps":17520,"state_positive_steps":607,"state_positive_fraction":0.034646,"alert_positive_steps":655,"alert_positive_fraction":0.037386,"max_raw_probability":0.999801},
+    {"scenario_id":581,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.43357},
+    {"scenario_id":597,"timesteps":17520,"state_positive_steps":644,"state_positive_fraction":0.036758,"alert_positive_steps":692,"alert_positive_fraction":0.039498,"max_raw_probability":0.999823},
+    {"scenario_id":612,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.462298},
+    {"scenario_id":622,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.256561},
+    {"scenario_id":651,"timesteps":17520,"state_positive_steps":683,"state_positive_fraction":0.038984,"alert_positive_steps":707,"alert_positive_fraction":0.040354,"max_raw_probability":0.99969},
+    {"scenario_id":654,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.245473},
+    {"scenario_id":661,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.23167},
+    {"scenario_id":677,"timesteps":17520,"state_positive_steps":1945,"state_positive_fraction":0.111016,"alert_positive_steps":2054,"alert_positive_fraction":0.117237,"max_raw_probability":0.999861},
+    {"scenario_id":715,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.799143},
+    {"scenario_id":746,"timesteps":17520,"state_positive_steps":2727,"state_positive_fraction":0.15565,"alert_positive_steps":2757,"alert_positive_fraction":0.157363,"max_raw_probability":0.999838},
+    {"scenario_id":758,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.442291},
+    {"scenario_id":801,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.24951},
+    {"scenario_id":844,"timesteps":17520,"state_positive_steps":3570,"state_positive_fraction":0.203767,"alert_positive_steps":3599,"alert_positive_fraction":0.205422,"max_raw_probability":0.999873},
+    {"scenario_id":898,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.390147},
+    {"scenario_id":912,"timesteps":17520,"state_positive_steps":1530,"state_positive_fraction":0.087329,"alert_positive_steps":1570,"alert_positive_fraction":0.089612,"max_raw_probability":0.999868},
+    {"scenario_id":951,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.5114},
+    {"scenario_id":967,"timesteps":17520,"state_positive_steps":3321,"state_positive_fraction":0.189555,"alert_positive_steps":3360,"alert_positive_fraction":0.191781,"max_raw_probability":0.999875},
+    {"scenario_id":980,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.256231},
+    {"scenario_id":996,"timesteps":17520,"state_positive_steps":0,"state_positive_fraction":0.0,"alert_positive_steps":0,"alert_positive_fraction":0.0,"max_raw_probability":0.442612}
+  ]
+}
