@@ -1,0 +1,32 @@
+{
+  "challenge_id":"leakdb-net1-sealed-001",
+  "prediction_freeze_commit":"fe4bf7a4c6cc84c94e882a72187c284b0630262e",
+  "workflow_run_id":35038579468,
+  "label_artifact":{"id":10424143660,"github_digest":"sha256:1cde5a55ac48f684c8a7e1283e1c08a3c25b0b16783acb1c6919bacc8b0bfb94","labels_npz_sha256":"d85e0835115296865a10e20d71565854a4ded77d65a2f3dfb4465f5e04753984"},
+  "aggregate":{"tp":72456,"tn":241501,"fp":11888,"fn":24555,"precision":0.8590534003604288,"recall":0.7468843739369763,"f1":0.7990515839100109,"true_negative_rate":0.953083993385664,"accuracy":0.8959960045662101},
+  "event_recall_within_10_steps":0.8333333333333334,
+  "events":18,
+  "events_detected":15,
+  "scenario_summary":[
+    {"scenario_id":155,"true_positive_fraction":0.883847,"pred_positive_fraction":0.886530,"precision":0.996910,"recall":0.999935,"f1":0.998420,"tnr":0.976413,"events":1,"event_hits":1},
+    {"scenario_id":163,"true_positive_fraction":0.286187,"pred_positive_fraction":0.164897,"precision":0.966771,"recall":0.557040,"f1":0.706820,"tnr":0.992324,"events":2,"event_hits":1},
+    {"scenario_id":209,"true_positive_fraction":0.0,"pred_positive_fraction":0.066952,"precision":0.0,"recall":0.0,"f1":0.0,"tnr":0.933048,"events":0,"event_hits":0},
+    {"scenario_id":245,"true_positive_fraction":0.0,"pred_positive_fraction":0.237842,"precision":0.0,"recall":0.0,"f1":0.0,"tnr":0.762158,"events":0,"event_hits":0},
+    {"scenario_id":332,"true_positive_fraction":0.449486,"pred_positive_fraction":0.384817,"precision":1.0,"recall":0.856127,"f1":0.922488,"tnr":1.0,"events":1,"event_hits":1},
+    {"scenario_id":401,"true_positive_fraction":0.213128,"pred_positive_fraction":0.217580,"precision":0.979276,"recall":0.999732,"f1":0.989398,"tnr":0.994270,"events":1,"event_hits":1},
+    {"scenario_id":430,"true_positive_fraction":0.198687,"pred_positive_fraction":0.060788,"precision":1.0,"recall":0.305947,"f1":0.468544,"tnr":1.0,"events":1,"event_hits":0},
+    {"scenario_id":437,"true_positive_fraction":0.0,"pred_positive_fraction":0.137329,"precision":0.0,"recall":0.0,"f1":0.0,"tnr":0.862671,"events":0,"event_hits":0},
+    {"scenario_id":512,"true_positive_fraction":0.411473,"pred_positive_fraction":0.414726,"precision":0.992018,"recall":0.999861,"f1":0.995924,"tnr":0.994375,"events":1,"event_hits":1},
+    {"scenario_id":526,"true_positive_fraction":0.443094,"pred_positive_fraction":0.448002,"precision":0.988788,"recall":0.999742,"f1":0.994235,"tnr":0.990981,"events":2,"event_hits":2},
+    {"scenario_id":555,"true_positive_fraction":0.315011,"pred_positive_fraction":0.344749,"precision":0.913742,"recall":1.0,"f1":0.954927,"tnr":0.956587,"events":1,"event_hits":1},
+    {"scenario_id":577,"true_positive_fraction":0.210217,"pred_positive_fraction":0.049258,"precision":1.0,"recall":0.234320,"f1":0.379674,"tnr":1.0,"events":1,"event_hits":1},
+    {"scenario_id":706,"true_positive_fraction":0.473801,"pred_positive_fraction":0.006450,"precision":1.0,"recall":0.013613,"f1":0.026860,"tnr":1.0,"events":1,"event_hits":1},
+    {"scenario_id":726,"true_positive_fraction":0.0,"pred_positive_fraction":0.0,"precision":0.0,"recall":0.0,"f1":0.0,"tnr":1.0,"events":0,"event_hits":0},
+    {"scenario_id":730,"true_positive_fraction":0.179680,"pred_positive_fraction":0.182477,"precision":0.984360,"recall":0.999682,"f1":0.991962,"tnr":0.996521,"events":1,"event_hits":1},
+    {"scenario_id":772,"true_positive_fraction":0.0,"pred_positive_fraction":0.0,"precision":0.0,"recall":0.0,"f1":0.0,"tnr":1.0,"events":0,"event_hits":0},
+    {"scenario_id":837,"true_positive_fraction":0.174258,"pred_positive_fraction":0.151941,"precision":0.116078,"recall":0.101212,"f1":0.108136,"tnr":0.837354,"events":1,"event_hits":0},
+    {"scenario_id":872,"true_positive_fraction":0.068037,"pred_positive_fraction":0.035274,"precision":1.0,"recall":0.518456,"f1":0.682873,"tnr":1.0,"events":1,"event_hits":1},
+    {"scenario_id":923,"true_positive_fraction":0.450457,"pred_positive_fraction":0.448973,"precision":0.997457,"recall":0.994171,"f1":0.995812,"tnr":0.997923,"events":1,"event_hits":1},
+    {"scenario_id":934,"true_positive_fraction":0.779795,"pred_positive_fraction":0.575571,"precision":0.917791,"recall":0.677426,"f1":0.779500,"tnr":0.785122,"events":2,"event_hits":2}
+  ]
+}
