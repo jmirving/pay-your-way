@@ -1,0 +1,32 @@
+{
+  "challenge_id": "leakdb-net1-localize-001",
+  "prediction_freeze_commit": "715e6fb55e6bd6a4d4922efc7c3c6633be79d367",
+  "workflow_run_id": 35121211852,
+  "label_artifact": {
+    "id": 10458440497,
+    "github_digest": "sha256:3e56bcf5890f5cbcae078269e0375c1a93d9ceb9c569545b0cb115965aef215c",
+    "location_labels_sha256": "705ac80a2f3e2655c52bd5e411d1e3c814fdb03f4084b73eb550bb120cd9bdf4"
+  },
+  "event_count": 66,
+  "candidate_node_count": 9,
+  "top1_accuracy": 0.7575757575757576,
+  "top3_recall": 0.8636363636363636,
+  "top5_recall": 0.9090909090909091,
+  "mean_reciprocal_rank": 0.8252104377104377,
+  "top1_within_1_graph_hop": 0.8787878787878788,
+  "top1_within_2_graph_hops": 0.9696969696969697,
+  "mean_top1_graph_hops": 0.3939393939393939,
+  "median_top1_graph_hops": 0.0,
+  "mean_top1_network_length": 2239.090909090909,
+  "median_top1_network_length": 0.0,
+  "search_space_reduction_at_top3": 0.6666666666666667,
+  "weak_true_nodes": {
+    "10": {"events": 4, "top1": 0.5, "top3": 0.5, "mean_rank": 4.0},
+    "32": {"events": 10, "top1": 0.6, "top3": 0.7, "mean_rank": 3.3}
+  },
+  "interpretation": {
+    "success": "Given a leak onset, five hours of sensor residuals reduce a nine-junction network to a top-three candidate set containing the true node 86.4% of the time, and the top guess is within two graph hops 97.0% of the time.",
+    "limitation": "Net1 is a small nine-junction benchmark and the benchmark supplies the true event onset. This proves the localization mechanism, not utility-scale field readiness.",
+    "next_iteration": "Run a fresh end-to-end Net1 benchmark in which the alert detector supplies the timestamp used by localization, so detection delay/false alerts and localization error are measured together."
+  }
+}
