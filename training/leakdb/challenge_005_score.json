@@ -1,0 +1,61 @@
+{
+  "challenge_id": "leakdb-net1-sealed-005",
+  "prediction_freeze_commit": "b31a2f6726bb7a98e98b916168bf9bb5a01cd6a3",
+  "workflow_run_id": 35119878074,
+  "label_artifact": {
+    "id": 10457074637,
+    "github_digest": "sha256:9ee5e1e23837408f66cde15fdaae88829884df4c76363fbd614fe726bb13c6b7",
+    "labels_npz_sha256": "9ca52285f4f4e6a06b60608c32e56e834c63fd9b6feea12f02fb1b4fcfd8f1a7"
+  },
+  "scenario_count": 60,
+  "events": 51,
+  "state": {
+    "aggregate": {
+      "tp": 169219,
+      "tn": 784435,
+      "fp": 3341,
+      "fn": 94205,
+      "precision": 0.9806386184515531,
+      "recall": 0.6423826226919339,
+      "f1": 0.7762624316488679,
+      "true_negative_rate": 0.9957589467056626,
+      "accuracy": 0.907205098934551
+    },
+    "events_with_any_detection_within_10_steps": 46,
+    "any_detection_event_recall": 0.9019607843137255,
+    "official_early_detection_score": 0.044416549270370045,
+    "no_leak_false_positive_fraction": 0.0017301655251141552
+  },
+  "alert": {
+    "aggregate": {
+      "tp": 171610,
+      "tn": 781439,
+      "fp": 6337,
+      "fn": 91814,
+      "precision": 0.9643882729127212,
+      "recall": 0.6514592444120505,
+      "f1": 0.7776224536727605,
+      "true_negative_rate": 0.9919558351612641,
+      "accuracy": 0.9066295662100456
+    },
+    "events_with_any_detection_within_10_steps": 50,
+    "any_detection_event_recall": 0.9803921568627451,
+    "official_early_detection_score": 0.6999175406486361,
+    "no_leak_false_positive_fraction": 0.0036208618721461187,
+    "no_leak_alert_episodes_per_30d": 0.523972602739726
+  },
+  "notable_state_recall_failures": {
+    "675": 0.0,
+    "971": 0.0501,
+    "658": 0.1398,
+    "156": 0.1643,
+    "860": 0.1981,
+    "354": 0.2330
+  },
+  "interpretation": {
+    "success": "Multi-cohort calibration restored low nuisance burden after challenge 004 while preserving the ~0.70 strict early-warning score seen in challenge 003. Fifty of 51 leak onsets had at least one alert within 10 half-hour steps.",
+    "failure": "The per-timestep state classifier remains unstable on leak duration/signature: recall is only 0.642 despite high precision. More threshold-only iterations are unlikely to be the highest-value next step.",
+    "decision": "Treat the alert detector as a credible development baseline for initiating localization work, while retaining state classification as supporting evidence rather than a production-ready leak-state estimator.",
+    "next_iteration": "Build a sealed localization benchmark: after a detected/known leak window, rank candidate network nodes/areas using sensor residuals and topology, with leak node labels kept in the secret artifact until rankings are frozen."
+  }
+}
