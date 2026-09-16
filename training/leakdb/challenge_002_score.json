@@ -1,0 +1,18 @@
+{
+  "challenge_id":"leakdb-net1-sealed-002",
+  "prediction_freeze_commit":"539feb366297e6dc327c59dd8c8375f14505841e",
+  "workflow_run_id":35039322496,
+  "label_artifact":{"id":10425000610,"github_digest":"sha256:30d2491f18afe08752117172b61a0d9cbde1918458a2994e841bb318d9b1ce6d","labels_npz_sha256":"3b4687f9574b4b41fdb10cf286cace359b33b26b0e029d49b2aa3fffac954dec"},
+  "aggregate":{"tp":103891,"tn":404353,"fp":4686,"fn":12670,"precision":0.9568416883870433,"recall":0.8913015502612366,"f1":0.9229095043928613,"true_negative_rate":0.9885438796789549,"accuracy":0.966978691019787},
+  "no_leak_false_positive_fraction":0.008426084474885845,
+  "events":29,
+  "events_with_any_detection_within_10_steps":28,
+  "any_detection_event_recall":0.9655172413793104,
+  "official_early_detection_score":0.2584631720604275,
+  "notable_failure_scenarios":{
+    "385":{"recall":0.1767,"events_detected_within_10_steps":"1/2"},
+    "703":{"ground_truth":"no leak","predicted_positive_fraction":0.064212},
+    "891":{"precision":0.7542,"true_negative_rate":0.8890},
+    "940":{"recall":0.3882}
+  }
+}
