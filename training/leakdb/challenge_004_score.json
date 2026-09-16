@@ -1,0 +1,61 @@
+{
+  "challenge_id": "leakdb-net1-sealed-004",
+  "prediction_freeze_commit": "402a07b1fc28cb82c555085097b45600e26efe8b",
+  "workflow_run_id": 35118930118,
+  "label_artifact": {
+    "id": 10455952777,
+    "github_digest": "sha256:3da7c8db85faf996a31935c9e8e11be55109f9399ae0014f7ce3d4b4762cc2ea",
+    "labels_npz_sha256": "2235d527817208e96fe1750a11ff35ffb0e0168cf25f0f5f1b936e20850c3b8c"
+  },
+  "scenario_count": 50,
+  "events": 51,
+  "state": {
+    "aggregate": {
+      "tp": 194188,
+      "tn": 590487,
+      "fp": 42200,
+      "fn": 49125,
+      "precision": 0.8214799397600555,
+      "recall": 0.7980995672241105,
+      "f1": 0.8096209930769374,
+      "true_negative_rate": 0.9333003523069069,
+      "accuracy": 0.8957477168949771
+    },
+    "any_detection_event_recall": 0.9803921568627451,
+    "official_early_detection_score": 0.5395182885182298,
+    "no_leak_false_positive_fraction": 0.08025684931506849
+  },
+  "alert": {
+    "aggregate": {
+      "tp": 192305,
+      "tn": 591026,
+      "fp": 41661,
+      "fn": 51008,
+      "precision": 0.8219356658659805,
+      "recall": 0.7903605643759273,
+      "f1": 0.80583893278355,
+      "true_negative_rate": 0.9341522743473472,
+      "accuracy": 0.8942134703196347
+    },
+    "any_detection_event_recall": 1.0,
+    "official_early_detection_score": 0.7423049555459201,
+    "no_leak_false_positive_fraction": 0.07615296803652968,
+    "no_leak_alert_episodes_per_30d": 8.186301369863015
+  },
+  "post_reveal_diagnostic_only": {
+    "note": "This does not change the frozen score. It diagnoses calibration instability using the already-burned challenge.",
+    "same_model_best_state_example": {
+      "smooth_window": 12,
+      "threshold": 0.4,
+      "precision": 0.9693898893560059,
+      "recall": 0.7619403813195349,
+      "f1": 0.8532367445467451,
+      "no_leak_false_positive_fraction": 0.006501141552511415
+    }
+  },
+  "interpretation": {
+    "success": "Leak-onset sensitivity remained high and early-warning score improved again.",
+    "failure": "Single-cohort calibration did not generalize its nuisance-alarm constraint; alert burden is operationally unacceptable on this cohort.",
+    "next_iteration": "Use multiple burned challenge cohorts as separate calibration groups and choose state/alert policy by worst-cohort performance, then test once on a fresh challenge 005 holdout."
+  }
+}
