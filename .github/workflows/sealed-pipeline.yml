@@ -1,0 +1,46 @@
+name: sealed-pipeline
+
+on:
+  push:
+    branches:
+      - benchmark/public-retrospective-v1
+    paths:
+      - .github/workflows/sealed-pipeline.yml
+      - training/leakdb_pipeline_acquire.py
+      - training/leakdb_pipeline_predict.py
+      - training/leakdb_pipeline_score.py
+
+jobs:
+  prepare-and-predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install benchmark dependencies
+        run: python -m pip install "water-benchmark-hub==0.4.0" "scikit-learn>=1.5,<2"
+      - name: Prepare sealed end-to-end pipeline challenge 001
+        run: python training/leakdb_pipeline_acquire.py --out-dir pipeline_work --holdout-count 60 --detection-burned-through 5 --localization-burned-through 1 --challenge-id leakdb-net1-pipeline-001
+      - name: Run frozen alert detector and node localizer
+        run: python training/leakdb_pipeline_predict.py --out-dir pipeline_work
+      - name: Capture environment
+        run: python -m pip freeze > pipeline_work/public/environment.txt
+      - name: Upload pipeline predictions
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-pipeline-predictions
+          path: pipeline_work/public/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload withheld pipeline labels
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-pipeline-labels
+          path: pipeline_work/secret/pipeline_labels.json
+          if-no-files-found: error
+          retention-days: 30
