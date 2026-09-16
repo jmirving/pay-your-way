@@ -1,0 +1,37 @@
+{
+  "challenge_id": "leakdb-net1-localize-001",
+  "workflow_run_id": 35121211852,
+  "workflow_head_sha": "750bf6fe66f3d8532de8a0edeafb007f22566913",
+  "prediction_artifact": {
+    "id": 10458445516,
+    "github_digest": "sha256:f52c486a6d8a00034f92a854a68773fa93c25b2ec7ef633be4064c8d91c26b2e",
+    "localization_predictions_sha256": "4d91323cb82c1a4aca82b698b36aff2157fa85fc11d85c5e0ecc489f7b345eeb",
+    "localization_report_sha256": "c6700916737b07dadeb50d5b88b1a1b2543242ffb3c205b7e5e4bc594f3371f7",
+    "localization_manifest_sha256": "fbc108d9b78ad454198ae3768303c9cc9f466eff541ff9e81e3a85309e8d0f62",
+    "topology_sha256": "d1828419c4f239a0e866ccb762045dc13d64f868f97167172ca8f078fd5762b6"
+  },
+  "withheld_label_artifact": {
+    "id": 10458440497,
+    "github_digest": "sha256:3e56bcf5890f5cbcae078269e0375c1a93d9ceb9c569545b0cb115965aef215c",
+    "status": "NOT_RETRIEVED_AT_FREEZE"
+  },
+  "algorithm": "LeakDB-Net1 ExtraTrees coordinate localizer v1",
+  "task": "conditional localization given true leak-event onset; leak node withheld",
+  "development_scenario_count": 157,
+  "development_event_count": 210,
+  "holdout_scenario_count": 50,
+  "holdout_event_count": 66,
+  "candidate_node_count": 9,
+  "feature_window_hours": 5,
+  "cross_validation": {
+    "challenge_001": {"top1": 0.8, "top3": 0.9, "top5": 1.0, "mrr": 0.8666666666666666},
+    "challenge_002": {"top1": 0.8571428571428571, "top3": 0.8928571428571429, "top5": 0.9642857142857143, "mrr": 0.8890873015873015},
+    "challenge_003": {"top1": 0.7317073170731707, "top3": 0.8536585365853658, "top5": 0.926829268292683, "mrr": 0.8021002710027099},
+    "challenge_004": {"top1": 0.75, "top3": 0.875, "top5": 0.9464285714285714, "mrr": 0.825170068027211},
+    "challenge_005": {"top1": 0.8653846153846154, "top3": 0.9230769230769231, "top5": 0.9423076923076923, "mrr": 0.9025106837606838},
+    "worst_top3": 0.8536585365853658,
+    "mean_top3": 0.8889185205038863,
+    "mean_mrr": 0.8571069982089146
+  },
+  "holdout_scenario_ids": [109,113,120,122,164,180,195,196,220,230,232,267,283,317,318,322,329,348,374,439,447,460,461,482,513,533,556,585,587,590,627,650,738,765,782,786,789,827,832,834,846,847,869,880,889,905,907,943,950,962]
+}
