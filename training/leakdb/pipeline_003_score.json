@@ -1,0 +1,54 @@
+{
+  "challenge_id": "leakdb-net1-pipeline-003",
+  "prediction_freeze_commit": "25214ef51223db10d1ad6adbdbd7bd6beeaea668",
+  "workflow_run_id": 35245817318,
+  "label_artifact": {
+    "id": 10507293698,
+    "github_digest": "sha256:298aaa60dccf190ac407113e7161b02e4b0b4bdc8183d946fc53b8a7238ee934",
+    "labels_json_sha256": "2b95d6b9c319f02c7d0144c58e14df0196b55b64e149c55a972b9bb5c5405a6a"
+  },
+  "scenario_count": 100,
+  "true_leak_event_count": 89,
+  "total_alert_episodes": 982,
+  "strict_window_steps": 10,
+  "strict_window_hours": 5.0,
+  "localization_observation_hours_after_alert": 5.0,
+  "strict_early_detection_recall": 0.8089887640449438,
+  "strict_actionable_top1_event_recall": 0.7191011235955056,
+  "strict_actionable_top3_event_recall": 0.7640449438202247,
+  "strict_localization_top3_given_detected": 0.9444444444444444,
+  "strict_mean_reciprocal_rank_given_detected": 0.9211033950617283,
+  "strict_median_localization_ready_delay_hours": 5.5,
+  "eventual_detection_recall": 0.9101123595505618,
+  "eventual_actionable_top1_event_recall": 0.7640449438202247,
+  "eventual_actionable_top3_event_recall": 0.8314606741573034,
+  "eventual_localization_top3_given_detected": 0.9135802469135802,
+  "eventual_median_localization_ready_delay_hours": 5.5,
+  "unmatched_alert_episodes": 608,
+  "unmatched_alert_episodes_per_30d": 0.49972602739726024,
+  "no_leak_scenario_alert_episodes_per_30d": 0.8321917808219178,
+  "top3_search_space_fraction": 0.3333333333333333,
+  "counts": {
+    "strict_detected": 72,
+    "strict_top1": 64,
+    "strict_top3": 68,
+    "eventual_detected": 81,
+    "eventual_top1": 68,
+    "eventual_top3": 74
+  },
+  "comparison_to_pipeline_002": {
+    "strict_early_detection_recall_002": 0.8309859154929577,
+    "strict_early_detection_recall_003": 0.8089887640449438,
+    "strict_actionable_top3_002": 0.7887323943661971,
+    "strict_actionable_top3_003": 0.7640449438202247,
+    "conditional_top3_002": 0.9491525423728814,
+    "conditional_top3_003": 0.9444444444444444,
+    "no_leak_episodes_per_30d_002": 0.7101369863013698,
+    "no_leak_episodes_per_30d_003": 0.8321917808219178
+  },
+  "interpretation": {
+    "replication": "The frozen pipeline-002 detector policy and localizer reproduced closely on a larger 100-scenario untouched cohort. Early alert and actionable top-three performance moved only a few percentage points and nuisance burden remained under one no-leak alert episode per 30 days.",
+    "net1_conclusion": "Within the nine-node Net1 benchmark, the current end-to-end method is stable enough that additional Net1 threshold tuning is no longer the highest-value experiment.",
+    "next_iteration": "Graduate to a larger topology benchmark. Train/calibrate the same algorithm family on LeakDB Hanoi development scenarios, seal fresh Hanoi holdouts, and evaluate early detection plus search-space reduction without importing Net1 weights or using holdout labels."
+  }
+}
