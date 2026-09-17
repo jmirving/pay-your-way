@@ -1,0 +1,56 @@
+{
+  "challenge_id": "leakdb-hanoi-pipeline-001",
+  "prediction_freeze_commit": "faf3087533f444716788774e71b2770a87cdee9c",
+  "workflow_run_id": 35247369223,
+  "label_artifact": {
+    "id": 10507714705,
+    "github_digest": "sha256:0ed6ba1f59634498d1fb8c023da8580d1746d8a0def2a6c81aabbf2e2a876d69",
+    "labels_json_sha256": "3800b6580bd583206599a61b268b18293349f41542f80f4b529f1f235e660fb0"
+  },
+  "network": {
+    "name": "Hanoi",
+    "candidate_node_count": 31,
+    "raw_sensor_count": 66
+  },
+  "scenario_count": 30,
+  "true_leak_event_count": 30,
+  "total_alert_episodes": 1851,
+  "strict_window_steps": 10,
+  "strict_window_hours": 5.0,
+  "localization_observation_hours_after_alert": 5.0,
+  "strict_early_detection_recall": 0.7333333333333333,
+  "strict_actionable_top1_event_recall": 0.26666666666666666,
+  "strict_actionable_top3_event_recall": 0.5666666666666667,
+  "strict_actionable_top5_event_recall": 0.7333333333333333,
+  "strict_localization_top3_given_detected": 0.7727272727272727,
+  "strict_localization_top5_given_detected": 1.0,
+  "strict_mean_reciprocal_rank_given_detected": 0.5901515151515151,
+  "strict_median_true_node_rank_given_detected": 2.0,
+  "strict_mean_true_node_rank_given_detected": 2.3636363636363638,
+  "strict_median_localization_ready_delay_hours": 5.5,
+  "eventual_detection_recall": 0.9,
+  "eventual_actionable_top1_event_recall": 0.26666666666666666,
+  "eventual_actionable_top3_event_recall": 0.5666666666666667,
+  "eventual_localization_top3_given_detected": 0.6296296296296297,
+  "eventual_median_localization_ready_delay_hours": 5.5,
+  "unmatched_alert_episodes": 95,
+  "unmatched_alert_episodes_per_30d": 0.2602739726027397,
+  "no_leak_scenario_alert_episodes_per_30d": 0.06575342465753424,
+  "top3_search_space_fraction": 0.0967741935483871,
+  "top5_search_space_fraction": 0.16129032258064516,
+  "counts": {
+    "strict_detected": 22,
+    "strict_top1": 8,
+    "strict_top3": 17,
+    "strict_top5": 22,
+    "eventual_detected": 27,
+    "eventual_top1": 8,
+    "eventual_top3": 17
+  },
+  "interpretation": {
+    "detection": "The algorithm family transferred to Hanoi without Net1 weights: 22 of 30 leaks started a new alert within five hours. This is weaker than the replicated Net1 rate (~81%) but materially above chance and has extremely low no-leak nuisance burden.",
+    "localization": "Given an early alert, the true node ranked top-three in 77.3% of cases and top-five in all 22. Median true-node rank was 2 among 31 candidate junctions. A top-three field search retains only 9.7% of the node search space.",
+    "operational_issue": "The selected one-step alert hold creates many repeated alert episodes during the same real leak. These are usually not false alarms, but paging repeatedly for an unresolved incident is operationally unacceptable and inflates total episode count.",
+    "next_iteration": "Keep the first-alert trigger and Hanoi localizer fixed. Add an incident state machine that emits one actionable incident, suppresses duplicate pages while the anomaly persists, and requires sustained recovery before reopening. Test the state machine on a fresh Hanoi holdout."
+  }
+}
