@@ -1,0 +1,60 @@
+{
+  "challenge_id": "leakdb-hanoi-pipeline-002",
+  "prediction_freeze_commit": "df847f6f1dcf6fdbed06cc42a20a1bff94630a7e",
+  "workflow_run_id": 35248502037,
+  "label_artifact": {
+    "id": 10508656479,
+    "github_digest": "sha256:13e5062db5e6df671d51df374b584079b8e41b98ab6ac9bd6b0f207b72325aa7",
+    "labels_json_sha256": "79b98c8e60a868d414679b37703f9b1d05531aecbcc53bf47053bed3d1d8a883"
+  },
+  "network": {
+    "name": "Hanoi",
+    "candidate_node_count": 31,
+    "raw_sensor_count": 66
+  },
+  "scenario_count": 40,
+  "true_leak_event_count": 34,
+  "total_incident_episodes": 461,
+  "new_incident_within_5h_recall": 0.6764705882352942,
+  "early_window_incident_coverage_recall": 0.7058823529411765,
+  "new_incident_actionable_top3_event_recall": 0.5,
+  "covered_actionable_top3_event_recall": 0.5,
+  "covered_actionable_top5_event_recall": 0.5882352941176471,
+  "covered_localization_top3_given_covered": 0.7083333333333334,
+  "covered_localization_top5_given_covered": 0.8333333333333334,
+  "eventual_detection_recall": 0.9411764705882353,
+  "eventual_actionable_top3_event_recall": 0.5588235294117647,
+  "unmatched_incident_episodes_per_30d": 0.16232876712328767,
+  "no_leak_scenario_incident_episodes_per_30d": 0.17070600632244468,
+  "mean_incident_episodes_overlapping_true_event": 11.441176470588236,
+  "median_incident_episodes_overlapping_true_event": 3.5,
+  "max_incident_episodes_overlapping_true_event": 112,
+  "top3_search_space_fraction": 0.0967741935483871,
+  "top5_search_space_fraction": 0.16129032258064516,
+  "counts": {
+    "new_early": 23,
+    "early_covered": 24,
+    "new_top3": 17,
+    "covered_top3": 17,
+    "covered_top5": 20,
+    "eventual_detected": 32,
+    "eventual_top3": 19,
+    "unmatched_incidents": 79,
+    "no_leak_incidents": 27
+  },
+  "comparison_to_hanoi_001": {
+    "hanoi_001_total_alert_episodes": 1851,
+    "hanoi_002_total_incident_episodes": 461,
+    "episode_reduction_fraction": 0.750945434900054,
+    "hanoi_001_new_early_detection_recall": 0.7333333333333333,
+    "hanoi_002_new_early_detection_recall": 0.6764705882352942,
+    "hanoi_001_no_leak_alert_episodes_per_30d": 0.06575342465753424,
+    "hanoi_002_no_leak_incident_episodes_per_30d": 0.17070600632244468
+  },
+  "interpretation": {
+    "success": "The incident state machine cut operator pages by about 75% while retaining very low no-leak nuisance burden and preserving useful Hanoi localization.",
+    "limitation": "Six hours of below-threshold recovery is still too permissive for long intermittent leak signatures: true leaks reopen a median 3.5 times, mean 11.4 times, and one long event reopened 112 times.",
+    "scoring_note": "Incident-aware early-window coverage is tracked separately from a fresh post-onset incident start. Only one event in this cohort was already covered by a pre-existing incident, so this distinction does not explain the cohort's lower new-alert recall.",
+    "next_iteration": "Calibrate incident closure hysteresis on burned Hanoi-001/002 scenarios: lower close threshold plus longer sustained recovery, optimizing early coverage, nuisance rate, event fragmentation, and distinct-event separation. Test once on a fresh Hanoi-003 holdout."
+  }
+}
