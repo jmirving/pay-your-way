@@ -75,23 +75,41 @@ def main() -> None:
     localizer.fit(loc_x, loc_y)
 
     results = []
+    total_snapshots = 0
     for sid in hold_ids:
         x = hold_x[sid]
         probability = causal_smooth(raw_probabilities(detector, x), OPEN_SMOOTH)
         raw_episodes = hysteresis_incidents(probability, CLOSE_THRESHOLD, RECOVERY_STEPS)
-        episodes = []
-        for start, end in raw_episodes:
-            snapshots = []
+
+        episode_specs = []
+        signatures = []
+        for episode_idx, (start, end) in enumerate(raw_episodes):
             for ready_idx in localization_ready_indices(start, end, len(x)):
-                sig = snapshot_signature(x, ready_idx)
-                pred_xy = localizer.predict(sig.reshape(1, -1))[0]
-                ranking = rank_nodes(pred_xy, coords, candidates)
-                snapshots.append({
-                    "localization_ready_idx": ready_idx,
-                    "window_start_idx": max(0, ready_idx - LOCALIZATION_WINDOW_STEPS + 1),
-                    "predicted_xy": [float(pred_xy[0]), float(pred_xy[1])],
-                    "ranked_nodes": ranking,
-                })
+                episode_specs.append((episode_idx, start, end, ready_idx))
+                signatures.append(snapshot_signature(x, ready_idx))
+
+        predicted_xy = (
+            localizer.predict(np.stack(signatures))
+            if signatures
+            else np.empty((0, 2), dtype=np.float64)
+        )
+
+        snapshots_by_episode: list[list[dict]] = [[] for _ in raw_episodes]
+        for spec, xy in zip(episode_specs, predicted_xy):
+            episode_idx, start, end, ready_idx = spec
+            ranking = rank_nodes(xy, coords, candidates)
+            snapshots_by_episode[episode_idx].append({
+                "localization_ready_idx": ready_idx,
+                "window_start_idx": max(0, ready_idx - LOCALIZATION_WINDOW_STEPS + 1),
+                "predicted_xy": [float(xy[0]), float(xy[1])],
+                "ranked_nodes": ranking,
+            })
+
+        episodes = []
+        for episode_idx, (start, end) in enumerate(raw_episodes):
+            snapshots = snapshots_by_episode[episode_idx]
+            if not snapshots:
+                continue
             initial = snapshots[0]
             episodes.append({
                 "alert_start_idx": start,
@@ -101,6 +119,8 @@ def main() -> None:
                 "ranked_nodes": initial["ranked_nodes"],
                 "localization_snapshots": snapshots,
             })
+            total_snapshots += len(snapshots)
+
         results.append({
             "scenario_id": sid,
             "timesteps": int(len(x)),
@@ -112,6 +132,7 @@ def main() -> None:
     )
     report = {
         "algorithm": "Pay Your Way LeakDB Hanoi pipeline v4 dynamic-localization",
+        "implementation": "batched localization inference; mathematically equivalent to v4 per-snapshot inference",
         "detector": {
             "family": "fixed Hanoi HGB detector",
             "training_scenario_ids": TRAIN_IDS,
@@ -133,6 +154,7 @@ def main() -> None:
             "refresh_steps": LOCALIZATION_REFRESH_STEPS,
             "refresh_hours": LOCALIZATION_REFRESH_STEPS * 0.5,
             "behavior": "rankings refresh causally from the latest five hours while an incident remains open",
+            "total_holdout_snapshots": total_snapshots,
         },
         "holdout_scenario_count": len(hold_ids),
         "raw_sensor_count": len(features or []),
@@ -145,7 +167,7 @@ def main() -> None:
     print(
         f"Hanoi v4 predicted {len(hold_ids)} sealed scenarios with "
         f"{sum(len(r['alert_episodes']) for r in results)} incidents and "
-        f"{sum(len(e['localization_snapshots']) for r in results for e in r['alert_episodes'])} localization snapshots"
+        f"{total_snapshots} batched localization snapshots"
     )
 
 
