@@ -1,0 +1,31 @@
+{
+  "challenge_id": "leakdb-net1-pipeline-001",
+  "status": "predictions-frozen-labels-not-downloaded-at-freeze",
+  "prediction_artifact": {
+    "id": 10457784338,
+    "github_digest": "sha256:da190bdb6db957f32a0875aab593e249948be63f3fe58abc8437e6b64cccaa0b",
+    "zip_sha256": "da190bdb6db957f32a0875aab593e249948be63f3fe58abc8437e6b64cccaa0b",
+    "pipeline_predictions_sha256": "e41c92b4bc380ae6b061522ccfea274dbd24d3a9d00eac5125c37e6eef1aaa13",
+    "pipeline_manifest_sha256": "5839c0643f10a3a9a3aba7227ef20c538ed262862a3878810a89eed13b5941d6",
+    "pipeline_report_sha256": "2b23bc3c5e6dbc6192f58ab7ee935788aed1a1a87f4503b071677fe84f7210da"
+  },
+  "workflow_run_id": 35122209788,
+  "workflow_head_sha": "c118c68b31017a920656b446e0fabdb14dd01b46",
+  "holdout_scenario_count": 60,
+  "holdout_scenario_ids": [104,124,138,146,153,158,160,161,166,199,211,213,240,242,247,257,259,292,307,325,334,350,361,387,393,396,399,402,409,435,453,472,479,494,534,583,605,608,630,648,669,674,716,739,744,754,769,775,777,791,870,879,885,895,926,931,941,963,982,983],
+  "detector": {
+    "family": "challenge-005 v5 HGB detector",
+    "alert_threshold": 0.725,
+    "alert_smooth_window": 1,
+    "alert_hold_steps": 8,
+    "note": "Threshold/policy are frozen from challenge 005 and are not recalibrated on pipeline holdout."
+  },
+  "localizer": {
+    "family": "ExtraTrees coordinate localizer v1",
+    "training_event_count": 276,
+    "observation_steps_after_alert": 10,
+    "observation_hours_after_alert": 5.0,
+    "candidate_node_count": 9
+  },
+  "label_boundary": "No holdout leak timing or node-label file is opened by this predictor."
+}
