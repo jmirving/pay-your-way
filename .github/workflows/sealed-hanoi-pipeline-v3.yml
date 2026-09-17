@@ -1,0 +1,49 @@
+name: sealed-hanoi-pipeline-v3
+
+on:
+  push:
+    branches:
+      - benchmark/public-retrospective-v1
+    paths:
+      - .github/workflows/sealed-hanoi-pipeline-v3.yml
+      - training/leakdb_hanoi_acquire_v3.py
+      - training/leakdb_hanoi_predict_v3.py
+      - training/leakdb/hanoi_001_prediction_freeze.json
+      - training/leakdb/hanoi_001_score.json
+      - training/leakdb/hanoi_002_prediction_freeze.json
+      - training/leakdb/hanoi_002_score.json
+
+jobs:
+  prepare-and-predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install benchmark dependencies
+        run: python -m pip install "water-benchmark-hub==0.4.0" "scikit-learn>=1.5,<2"
+      - name: Prepare sealed Hanoi hysteresis challenge
+        run: python training/leakdb_hanoi_acquire_v3.py --out-dir hanoi_v3_work --holdout-count 60 --challenge-id leakdb-hanoi-pipeline-003
+      - name: Calibrate incident closure and predict sealed scenarios
+        run: python training/leakdb_hanoi_predict_v3.py --out-dir hanoi_v3_work
+      - name: Capture environment
+        run: python -m pip freeze > hanoi_v3_work/public/environment.txt
+      - name: Upload Hanoi-v3 predictions
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-hanoi-v3-predictions
+          path: hanoi_v3_work/public/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload withheld Hanoi-v3 labels
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-hanoi-v3-labels
+          path: hanoi_v3_work/secret/pipeline_labels.json
+          if-no-files-found: error
+          retention-days: 30
