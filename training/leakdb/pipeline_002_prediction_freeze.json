@@ -1,0 +1,43 @@
+{
+  "challenge_id": "leakdb-net1-pipeline-002",
+  "status": "predictions-frozen-labels-not-downloaded-at-freeze",
+  "workflow_run_id": 35244281578,
+  "workflow_head_sha": "eeeed3010efbacae632d85d43f7bd968621279e7",
+  "prediction_artifact": {
+    "id": 10507351557,
+    "github_digest": "sha256:5b38ec770dd11e44a40267944c4c7883b0926f48130a06c68fa1e67ee0c71ea3",
+    "zip_sha256": "5b38ec770dd11e44a40267944c4c7883b0926f48130a06c68fa1e67ee0c71ea3",
+    "environment_sha256": "85b0f5d23f7b6945f735cba51a79547ffe766ba5ad58473bbe65412668bc5348",
+    "pipeline_manifest_sha256": "26242a38f8ad84de739e5cef4f1e0abfae843634872f1d6502a17b3a1a4036ea",
+    "pipeline_predictions_sha256": "81d0f6d9a111db6ee4ac9c70013e7eb734fa87d57b5d560bcb1ae8115f902b96",
+    "pipeline_report_sha256": "706f4c357083e5dab9ea2c7ada6137d3050b20b3ee7007de33b14d33d967cbd1",
+    "topology_sha256": "d1828419c4f239a0e866ccb762045dc13d64f868f97167172ca8f078fd5762b6"
+  },
+  "holdout_scenario_count": 80,
+  "holdout_scenario_ids": [115,117,127,144,157,162,169,172,190,191,194,206,244,248,266,274,275,278,293,302,303,360,362,380,389,414,424,438,440,448,454,496,500,501,538,539,547,552,558,560,561,586,592,601,602,614,634,660,662,681,690,691,714,717,727,732,748,771,784,787,802,805,806,811,812,823,824,830,839,851,852,861,867,875,884,917,922,935,969,994],
+  "detector_policy": {
+    "family": "HGB detector plus robust new-alert episode calibration",
+    "alert_threshold": 0.7,
+    "alert_smooth_window": 3,
+    "alert_hold_steps": 8,
+    "objective": "maximize worst-cohort new-alert starts within ten half-hour steps subject to <=1 no-leak episode/30d and <=1.5 unmatched episodes/30d",
+    "validation": {
+      "challenge_001": {"early_new_alert_recall": 0.8888888888888888, "no_leak_alert_episodes_per_30d": 0.0821917808219178, "unmatched_alert_episodes_per_30d": 0.2958904109589041},
+      "challenge_002": {"early_new_alert_recall": 0.8823529411764706, "no_leak_alert_episodes_per_30d": 0.9452054794520548, "unmatched_alert_episodes_per_30d": 1.2547945205479452},
+      "challenge_003": {"early_new_alert_recall": 0.95, "no_leak_alert_episodes_per_30d": 0.5753424657534246, "unmatched_alert_episodes_per_30d": 0.3},
+      "challenge_004": {"early_new_alert_recall": 0.875, "no_leak_alert_episodes_per_30d": 0.5401459854014599, "unmatched_alert_episodes_per_30d": 0.36496350364963503},
+      "challenge_005": {"early_new_alert_recall": 0.9565217391304348, "no_leak_alert_episodes_per_30d": 0.2764976958525346, "unmatched_alert_episodes_per_30d": 0.3150684931506849},
+      "pipeline_001": {"early_new_alert_recall": 0.9591836734693877, "no_leak_alert_episodes_per_30d": 0.2191780821917808, "unmatched_alert_episodes_per_30d": 0.3506849315068493}
+    },
+    "validation_median_start_delay_steps": 1,
+    "validation_median_start_delay_hours": 0.5
+  },
+  "localizer": {
+    "family": "frozen pipeline-001 ExtraTrees coordinate localizer v1",
+    "training_event_count": 276,
+    "observation_steps_after_alert": 10,
+    "observation_hours_after_alert": 5.0,
+    "candidate_node_count": 9
+  },
+  "label_boundary": "No pipeline-002 holdout leak timing or node-label artifact had been downloaded or opened when this freeze was committed."
+}
