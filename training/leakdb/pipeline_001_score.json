@@ -1,0 +1,37 @@
+{
+  "challenge_id": "leakdb-net1-pipeline-001",
+  "prediction_freeze_commit": "acf1ad01838dc6a50de44121052e651a920af702",
+  "workflow_run_id": 35122209788,
+  "label_artifact": {
+    "id": 10458003972,
+    "github_digest": "sha256:112166855dc088345796e9c924512f2cb55c68b0c025be847818de8688b95355",
+    "labels_json_sha256": "6c1cc3caf5524b657d56e1fbd892d980d8fc022fdad296e4c5bd506c2cc66ea9"
+  },
+  "scenario_count": 60,
+  "true_leak_event_count": 55,
+  "total_alert_episodes": 916,
+  "strict_window_steps": 10,
+  "strict_window_hours": 5.0,
+  "localization_observation_hours_after_alert": 5.0,
+  "strict_early_detection_recall": 0.5272727272727272,
+  "strict_actionable_top1_event_recall": 0.509090909090909,
+  "strict_actionable_top3_event_recall": 0.5272727272727272,
+  "strict_localization_top3_given_detected": 1.0,
+  "strict_mean_reciprocal_rank_given_detected": 0.9827586206896551,
+  "strict_median_localization_ready_delay_hours": 5.0,
+  "eventual_detection_recall": 0.8727272727272727,
+  "eventual_actionable_top1_event_recall": 0.6181818181818182,
+  "eventual_actionable_top3_event_recall": 0.6727272727272727,
+  "eventual_localization_top3_given_detected": 0.7708333333333334,
+  "eventual_median_localization_ready_delay_hours": 5.0,
+  "unmatched_alert_episodes": 560,
+  "unmatched_alert_episodes_per_30d": 0.767123287671233,
+  "no_leak_scenario_alert_episodes_per_30d": 0.7705479452054794,
+  "top3_search_space_fraction": 0.3333333333333333,
+  "interpretation": {
+    "success": "Conditional on a new alert starting within five hours of leak onset, localization is extremely strong on Net1: the true node is top-three in all 29 early-detected events and top-one in 28 of 29.",
+    "failure": "Only 29 of 55 leak events start a qualifying alert in the first five hours. Detection/alert onset, not localization, is the dominant end-to-end bottleneck. Later alerts raise eventual detection to 87.3% but localization quality falls because they are farther from the hydraulic transition and can represent unrelated alert episodes.",
+    "operational_reading": "The current system can narrow a nine-node search space well once it recognizes the event, but it is not yet reliable enough to serve as a stand-alone early dispatch trigger.",
+    "next_iteration": "Diagnose early missed events against the frozen detector probabilities and build a two-stage onset policy that preserves challenge-005 nuisance limits while increasing new-alert starts in the first ten half-hour steps. Keep the localizer frozen for the next end-to-end test."
+  }
+}
