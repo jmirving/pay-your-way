@@ -1,0 +1,40 @@
+{
+  "challenge_id": "leakdb-hanoi-pipeline-002",
+  "status": "predictions-frozen-labels-not-downloaded-at-freeze",
+  "workflow_run_id": 35248502037,
+  "workflow_head_sha": "185d756e39f5bb11e5280348d780cade45f15564",
+  "prediction_artifact": {
+    "id": 10508861263,
+    "github_digest": "sha256:e8ae8d2c88126c3f0f50a7d67776508c11193e9793a0589d25839b017e28cb37",
+    "zip_sha256": "e8ae8d2c88126c3f0f50a7d67776508c11193e9793a0589d25839b017e28cb37",
+    "environment_sha256": "85b0f5d23f7b6945f735cba51a79547ffe766ba5ad58473bbe65412668bc5348",
+    "pipeline_manifest_sha256": "743aa3365c0c8d74d5c34d2c926c329ec5ce3654e992aea281a8fb625bec792f",
+    "pipeline_predictions_sha256": "d10191ee487b9ec4389c97c7ce7949e1a3cd3410d77f6e03786d92d55c7630c9",
+    "pipeline_report_sha256": "13a5ccfa06c07ee58af419c7b6f67f669f48408ff6bbab6de1c8c7b5017d8b49",
+    "topology_sha256": "adb3bdfbb055a8cb64cc63c54c0b4fe4e5a27152396e3809169a8ea0f8f9da69"
+  },
+  "network": {
+    "name": "Hanoi",
+    "candidate_node_count": 31,
+    "raw_sensor_count": 66
+  },
+  "holdout_scenario_count": 40,
+  "holdout_scenario_ids": [101,102,116,142,147,155,168,204,227,232,242,262,274,340,404,412,449,492,535,566,590,616,640,647,662,673,686,691,694,695,708,741,777,779,816,845,886,962,964,999],
+  "detector": {
+    "family": "identical Hanoi pipeline-001 HGB detector",
+    "training_scenario_ids": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
+    "alert_threshold": 0.775,
+    "alert_smooth_window": 2
+  },
+  "incident_state": {
+    "recovery_steps": 12,
+    "recovery_hours": 6.0
+  },
+  "localizer": {
+    "family": "identical Hanoi pipeline-001 ExtraTrees coordinate localizer",
+    "training_event_count": 61,
+    "observation_steps_after_alert": 10
+  },
+  "change_under_test": "incident state machine only; detector trigger, training data, and localizer family unchanged",
+  "label_boundary": "No Hanoi-002 holdout leak timing or node-label artifact had been downloaded or opened when this freeze was committed."
+}
