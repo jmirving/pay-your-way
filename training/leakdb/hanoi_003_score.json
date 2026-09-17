@@ -1,0 +1,61 @@
+{
+  "challenge_id": "leakdb-hanoi-pipeline-003",
+  "prediction_freeze_commit": "867dd4e17c901b0706fb4f85f4b48a0759a1cb3e",
+  "workflow_run_id": 35283736020,
+  "label_artifact": {
+    "id": 10524072665,
+    "github_digest": "sha256:60b8a09478259021d9f093e25bd790dabb9cfdf76ee4c84ab1eae270786606ed",
+    "labels_json_sha256": "98679d05d2858fb2ebd7e669a7b4740ebc7c3c6da1b98bd500fa0633a08f11b4"
+  },
+  "network": {"name": "Hanoi", "candidate_node_count": 31, "raw_sensor_count": 66},
+  "scenario_count": 60,
+  "true_leak_event_count": 58,
+  "total_incident_episodes": 119,
+  "new_incident_within_5h_recall": 0.6206896551724138,
+  "early_window_incident_coverage_recall": 0.7586206896551724,
+  "new_incident_actionable_top1_event_recall": 0.22413793103448276,
+  "new_incident_actionable_top3_event_recall": 0.3793103448275862,
+  "new_incident_actionable_top5_event_recall": 0.46551724137931033,
+  "covered_actionable_top3_event_recall": 0.39655172413793105,
+  "covered_actionable_top5_event_recall": 0.5,
+  "covered_localization_top3_given_covered": 0.5227272727272727,
+  "covered_localization_top5_given_covered": 0.6590909090909091,
+  "eventual_detection_recall": 0.8448275862068966,
+  "eventual_actionable_top3_event_recall": 0.4827586206896552,
+  "unmatched_incident_episodes_per_30d": 0.0863013698630137,
+  "no_leak_scenario_incident_episodes_per_30d": 0.1643835616438356,
+  "mean_incident_episodes_overlapping_true_event": 1.103448275862069,
+  "median_incident_episodes_overlapping_true_event": 1.0,
+  "max_incident_episodes_overlapping_true_event": 3,
+  "top3_search_space_fraction": 0.0967741935483871,
+  "top5_search_space_fraction": 0.16129032258064516,
+  "counts": {
+    "fresh": 36,
+    "covered": 44,
+    "eventual": 49,
+    "fresh_top1": 13,
+    "fresh_top3": 22,
+    "fresh_top5": 27,
+    "covered_top1": 13,
+    "covered_top3": 23,
+    "covered_top5": 29,
+    "eventual_top3": 28,
+    "total_incidents": 119,
+    "unmatched": 63,
+    "no_leak": 30
+  },
+  "incident_policy": {
+    "open_threshold": 0.775,
+    "open_smooth_window": 2,
+    "close_threshold": 0.5,
+    "recovery_steps": 96,
+    "recovery_hours": 48.0
+  },
+  "interpretation": {
+    "incident_success": "Calibrated hysteresis generalized: median fragmentation is one incident per true event, mean 1.10, max 3, with low nuisance burden. The operator paging problem exposed by Hanoi-001/002 is substantially resolved.",
+    "detection": "Fresh-start recall is 62.1%, but an incident covers the first five hours of 75.9% of leak events. Eventual incident detection is 84.5%.",
+    "localization_failure": "The static one-shot localizer is now the limiting subsystem. Conditional top-three localization among early-covered events fell to 52.3% on this cohort even though incident handling stabilized.",
+    "architectural_lesson": "Localization should be treated as a continuously refreshable belief inside an open incident, not a ranking frozen when the incident first opens. This matters especially when an incident predates a later leak or the hydraulic signature evolves.",
+    "next_iteration": "Keep detector and incident hysteresis fixed. Expand localization training with burned Hanoi events, refresh localization rankings periodically while incidents remain active, and test time-to-top3 on a fresh sealed Hanoi cohort."
+  }
+}
