@@ -1,0 +1,33 @@
+name: ltown-probe
+
+on:
+  push:
+    branches:
+      - benchmark/public-retrospective-v1
+    paths:
+      - .github/workflows/ltown-probe.yml
+      - training/ltown_probe.py
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install WNTR
+        run: python -m pip install "wntr==1.5.0"
+      - name: Run L-Town pressure-dependent leak probe
+        run: python training/ltown_probe.py
+      - name: Upload probe result
+        uses: actions/upload-artifact@v4
+        with:
+          name: ltown-probe
+          path: ltown_probe_work/probe.json
+          if-no-files-found: error
+          retention-days: 30
