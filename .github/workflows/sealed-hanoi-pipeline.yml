@@ -1,0 +1,45 @@
+name: sealed-hanoi-pipeline
+
+on:
+  push:
+    branches:
+      - benchmark/public-retrospective-v1
+    paths:
+      - .github/workflows/sealed-hanoi-pipeline.yml
+      - training/leakdb_hanoi_acquire.py
+      - training/leakdb_hanoi_predict.py
+
+jobs:
+  prepare-and-predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install benchmark dependencies
+        run: python -m pip install "water-benchmark-hub==0.4.0" "scikit-learn>=1.5,<2"
+      - name: Prepare sealed Hanoi challenge
+        run: python training/leakdb_hanoi_acquire.py --out-dir hanoi_work --holdout-count 30 --challenge-id leakdb-hanoi-pipeline-001
+      - name: Train Hanoi method and predict sealed holdout
+        run: python training/leakdb_hanoi_predict.py --out-dir hanoi_work
+      - name: Capture environment
+        run: python -m pip freeze > hanoi_work/public/environment.txt
+      - name: Upload Hanoi predictions
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-hanoi-predictions
+          path: hanoi_work/public/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload withheld Hanoi labels
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-hanoi-labels
+          path: hanoi_work/secret/pipeline_labels.json
+          if-no-files-found: error
+          retention-days: 30
