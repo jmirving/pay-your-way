@@ -1,0 +1,44 @@
+{
+  "challenge_id": "leakdb-hanoi-pipeline-004",
+  "status": "predictions-frozen-labels-not-downloaded-at-freeze",
+  "workflow_run_id": 35285919484,
+  "workflow_head_sha": "6a7247045ec7a4884edcb2547c99580f13e663e8",
+  "implementation": "batched localization inference; mathematically equivalent to initial v4 per-snapshot implementation",
+  "supersedes_unrevealed_run_id": 35284575950,
+  "prediction_artifact": {
+    "id": 10524637101,
+    "github_digest": "sha256:31ea011e877f4817641bf7fcd06f3a7af2928997c091d46204f1ee92e2dd5c9f",
+    "zip_sha256": "31ea011e877f4817641bf7fcd06f3a7af2928997c091d46204f1ee92e2dd5c9f",
+    "environment_sha256": "85b0f5d23f7b6945f735cba51a79547ffe766ba5ad58473bbe65412668bc5348",
+    "pipeline_manifest_sha256": "fe3a5862158e439712aadbeff8ee2c63afe4713dcc272f774b211704f5421fda",
+    "pipeline_predictions_sha256": "210e03f61442f611baf7b0542bae2ede6a864061c01fd57a009fa4f81f0a89e8",
+    "pipeline_report_sha256": "d89ff22004bafe636ff0d11a937cea0fdee4aa409b216c86a108551cb8f6f718",
+    "topology_sha256": "adb3bdfbb055a8cb64cc63c54c0b4fe4e5a27152396e3809169a8ea0f8f9da69"
+  },
+  "network": {"name": "Hanoi", "candidate_node_count": 31, "raw_sensor_count": 66},
+  "holdout_scenario_count": 70,
+  "holdout_scenario_ids": [113,117,118,121,122,145,151,188,197,212,216,244,284,300,304,324,360,361,364,372,377,394,399,409,424,425,433,443,444,452,490,518,523,526,529,541,568,577,578,579,583,591,597,615,648,675,682,729,732,750,754,759,764,786,788,802,821,822,843,853,857,865,893,897,905,913,937,980,982,995],
+  "detector": {
+    "family": "fixed Hanoi HGB detector",
+    "training_scenario_ids": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
+    "open_threshold": 0.775,
+    "open_smooth_window": 2
+  },
+  "incident_state": {
+    "close_threshold": 0.5,
+    "recovery_steps": 96,
+    "recovery_hours": 48.0,
+    "source": "frozen Hanoi pipeline-003"
+  },
+  "localizer": {
+    "family": "ExtraTrees coordinate localizer with all previously revealed Hanoi events",
+    "training_scenario_count": 190,
+    "training_event_count": 183,
+    "observation_window_steps": 10,
+    "refresh_steps": 12,
+    "refresh_hours": 6.0,
+    "total_holdout_snapshots": 22765
+  },
+  "evaluation_target": "By 10 hours after true leak onset, determine whether any causal localization snapshot inside an active incident ranks the true node top-3/top-5.",
+  "label_boundary": "No Hanoi-004 holdout leak timing or node-label artifact had been downloaded or opened when this freeze was committed."
+}
