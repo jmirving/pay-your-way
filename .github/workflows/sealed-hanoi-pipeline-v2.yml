@@ -1,0 +1,47 @@
+name: sealed-hanoi-pipeline-v2
+
+on:
+  push:
+    branches:
+      - benchmark/public-retrospective-v1
+    paths:
+      - .github/workflows/sealed-hanoi-pipeline-v2.yml
+      - training/leakdb_hanoi_acquire_v2.py
+      - training/leakdb_hanoi_predict_v2.py
+      - training/leakdb/hanoi_001_prediction_freeze.json
+      - training/leakdb/hanoi_001_score.json
+
+jobs:
+  prepare-and-predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install benchmark dependencies
+        run: python -m pip install "water-benchmark-hub==0.4.0" "scikit-learn>=1.5,<2"
+      - name: Prepare fresh sealed Hanoi incident cohort
+        run: python training/leakdb_hanoi_acquire_v2.py --out-dir hanoi_v2_work --holdout-count 40 --challenge-id leakdb-hanoi-pipeline-002
+      - name: Run frozen Hanoi detector with incident deduplication
+        run: python training/leakdb_hanoi_predict_v2.py --out-dir hanoi_v2_work
+      - name: Capture environment
+        run: python -m pip freeze > hanoi_v2_work/public/environment.txt
+      - name: Upload Hanoi-v2 predictions
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-hanoi-v2-predictions
+          path: hanoi_v2_work/public/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload withheld Hanoi-v2 labels
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-hanoi-v2-labels
+          path: hanoi_v2_work/secret/pipeline_labels.json
+          if-no-files-found: error
+          retention-days: 30
