@@ -1,0 +1,45 @@
+{
+  "challenge_id": "leakdb-net1-pipeline-002",
+  "prediction_freeze_commit": "ee15db3b3f26921f7a598bc395e91d4165979072",
+  "workflow_run_id": 35244281578,
+  "label_artifact": {
+    "id": 10507296625,
+    "github_digest": "sha256:bbd4baa8e573f8008de5b693756678da6a81c3fd48e61991490afc47f30bfd75",
+    "labels_json_sha256": "df2ea5dc6381ec28f7f74b17e57fda898431bab3012ca9db5005cd0afbf340e3"
+  },
+  "scenario_count": 80,
+  "true_leak_event_count": 71,
+  "total_alert_episodes": 1117,
+  "strict_window_steps": 10,
+  "strict_window_hours": 5.0,
+  "localization_observation_hours_after_alert": 5.0,
+  "strict_early_detection_recall": 0.8309859154929577,
+  "strict_actionable_top1_event_recall": 0.7464788732394366,
+  "strict_actionable_top3_event_recall": 0.7887323943661971,
+  "strict_localization_top3_given_detected": 0.9491525423728814,
+  "strict_mean_reciprocal_rank_given_detected": 0.9306497175141243,
+  "strict_median_localization_ready_delay_hours": 5.5,
+  "eventual_detection_recall": 0.9014084507042254,
+  "eventual_actionable_top1_event_recall": 0.7605633802816901,
+  "eventual_actionable_top3_event_recall": 0.8028169014084507,
+  "eventual_localization_top3_given_detected": 0.890625,
+  "eventual_median_localization_ready_delay_hours": 5.5,
+  "unmatched_alert_episodes": 726,
+  "unmatched_alert_episodes_per_30d": 0.7458904109589041,
+  "no_leak_scenario_alert_episodes_per_30d": 0.7101369863013698,
+  "top3_search_space_fraction": 0.3333333333333333,
+  "comparison_to_pipeline_001": {
+    "strict_early_detection_recall_before": 0.5272727272727272,
+    "strict_early_detection_recall_after": 0.8309859154929577,
+    "strict_actionable_top3_before": 0.5272727272727272,
+    "strict_actionable_top3_after": 0.7887323943661971,
+    "no_leak_alert_episodes_per_30d_before": 0.7705479452054794,
+    "no_leak_alert_episodes_per_30d_after": 0.7101369863013698
+  },
+  "interpretation": {
+    "success": "Robust calibration for new alert episode starts fixed the dominant pipeline-001 failure. Early-new-alert recall rose from 52.7% to 83.1%, and end-to-end early top-three actionable recall rose from 52.7% to 78.9%, while no-leak nuisance episodes remained low and slightly improved.",
+    "localization": "The frozen localizer remained strong: conditional on an early alert, the true node was in the top three 94.9% of the time and top-one for 53 of 59 early-detected events.",
+    "remaining_limit": "Net1 contains only nine candidate nodes. Before claiming utility-scale localization readiness, repeat the frozen alert policy on another fresh Net1 cohort and then move to a larger network/topology benchmark without using its holdout outcomes for tuning.",
+    "next_iteration": "Run a replication cohort with the pipeline-002 detector policy and localizer frozen exactly as-is. If performance is stable, graduate the benchmark to a larger water network where top-three localization represents a materially larger field-search reduction."
+  }
+}
