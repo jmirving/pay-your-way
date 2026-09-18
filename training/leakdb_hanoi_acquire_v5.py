@@ -3,11 +3,67 @@ from __future__ import annotations
 import argparse
 import json
 import secrets
+import time
 from pathlib import Path
 
-from leakdb_hanoi_acquire import DEV_IDS, hanoi_catalog, load_frames_hanoi
+import numpy as np
+
+from leakdb_hanoi_acquire import DEV_IDS, hanoi_catalog
 from leakdb_localize_acquire import parse_inp
 from leakdb_sealed import _save_bundle
+
+
+def load_frames_hanoi_resilient(
+    ids: list[int],
+    cache_dir: Path,
+    *,
+    attempts: int = 4,
+) -> tuple[dict[int, np.ndarray], dict[int, np.ndarray], list[str]]:
+    """Load scenarios individually so one transient download cannot discard the cohort."""
+    from water_benchmark_hub import load
+
+    benchmark = load("KIOS-LeakDB")
+    xs: dict[int, np.ndarray] = {}
+    ys: dict[int, np.ndarray] = {}
+    features: list[str] | None = None
+
+    for position, sid in enumerate(ids, 1):
+        for attempt in range(1, attempts + 1):
+            try:
+                frame = benchmark.load_data(
+                    [sid],
+                    use_net1=False,
+                    download_dir=str(cache_dir),
+                    return_X_y=False,
+                    verbose=False,
+                )[sid]
+                current = [
+                    str(column)
+                    for column in frame.columns
+                    if str(column) not in {"labels", "timestamps"}
+                ]
+                if features is None:
+                    features = current
+                elif current != features:
+                    raise RuntimeError(f"Hanoi scenario {sid} feature schema differs")
+                xs[sid] = frame[current].to_numpy(dtype=np.float32)
+                ys[sid] = frame["labels"].to_numpy(dtype=np.uint8)
+                print(f"loaded Hanoi scenario {position}/{len(ids)}: {sid}", flush=True)
+                break
+            except Exception as error:
+                if attempt == attempts:
+                    raise RuntimeError(
+                        f"Failed to load Hanoi scenario {sid} after {attempts} attempts"
+                    ) from error
+                delay = min(20, 3 * attempt)
+                print(
+                    f"retry Hanoi scenario {sid}: attempt {attempt}/{attempts} failed "
+                    f"({type(error).__name__}: {error}); sleeping {delay}s",
+                    flush=True,
+                )
+                time.sleep(delay)
+
+    return xs, ys, features or []
 
 
 def burned_hanoi_ids(leakdb_dir: Path, through: int = 4) -> list[int]:
@@ -45,8 +101,8 @@ def main() -> None:
         f"Hanoi v5: loading {len(localizer_ids)} burned/development + "
         f"{len(holdout_ids)} fresh holdout scenarios"
     )
-    dev_x, dev_y, features = load_frames_hanoi(localizer_ids, cache)
-    hold_x, hold_y, hold_features = load_frames_hanoi(holdout_ids, cache)
+    dev_x, dev_y, features = load_frames_hanoi_resilient(localizer_ids, cache)
+    hold_x, hold_y, hold_features = load_frames_hanoi_resilient(holdout_ids, cache)
     if features != hold_features:
         raise RuntimeError("Hanoi development and holdout feature schemas differ")
     _save_bundle(out / "dev_bundle.npz", localizer_ids, dev_x, dev_y, features)
