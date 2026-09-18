@@ -1,0 +1,50 @@
+{
+  "challenge_id": "ltown-sealed-001",
+  "prediction_freeze_commit": "97e976ec3b1e43ef2d268f17373450e2e62ae2f8",
+  "workflow_run_id": 35291921830,
+  "label_artifact": {
+    "id": 10526927584,
+    "github_digest": "sha256:8b24f81c9aae9efc270350d85b214c7f5209ad0f1115545d7ecce43bfeecfa4e",
+    "labels_json_sha256": "42bb5c2d0a1e43176631a226e465d0afac047562965f3cf51bfed3d0cf85e19a"
+  },
+  "network": {
+    "name": "L-Town v1.2",
+    "junctions": 783,
+    "pipes": 906,
+    "raw_sensor_count": 37,
+    "pressure_search_zones": 33
+  },
+  "scenario_count": 30,
+  "leak_scenarios": 24,
+  "no_leak_controls": 6,
+  "early_detection_recall_5h": 0.9583333333333334,
+  "premature_alert_fraction_on_leaks": 0.0,
+  "no_leak_false_scenario_fraction": 0.16666666666666666,
+  "timely_localization_ready_recall_10h": 0.9583333333333334,
+  "actionable_top1_zone_recall_10h": 0.20833333333333334,
+  "actionable_top3_zone_recall_10h": 0.4583333333333333,
+  "actionable_top5_zone_recall_10h": 0.5833333333333334,
+  "top3_zone_given_timely_localization": 0.4782608695652174,
+  "top5_zone_given_timely_localization": 0.6086956521739131,
+  "median_alert_delay_hours": 1.0,
+  "median_localization_ready_delay_hours": 5.75,
+  "top3_search_space_fraction": 0.09090909090909091,
+  "top5_search_space_fraction": 0.15151515151515152,
+  "counts": {
+    "early_detected": 23,
+    "premature": 0,
+    "false_controls": 1,
+    "timely_localization": 23,
+    "top1": 5,
+    "top3": 11,
+    "top5": 14
+  },
+  "interpretation": {
+    "detection_success": "Sparse-sensor detection generalized strongly to the sealed L-Town cohort: 23 of 24 leaks alerted within five hours, with a one-hour median delay and no premature leak alerts.",
+    "control_limitation": "One of six no-leak controls alerted, so the control sample is too small to estimate nuisance behavior precisely.",
+    "localization_failure": "Pressure-search-zone localization is the limiting subsystem: only 47.8% of timely detections ranked the correct zone top-three and 60.9% top-five.",
+    "search_reduction": "A top-three recommendation retains 9.1% of the 33-zone search space, but the current conditional recall is not high enough for field confidence.",
+    "diagnosis": "The localizer had only 66 labeled development leaks for 33 zone classes (two examples per zone across train plus validation). This is severe sample starvation relative to the topology.",
+    "next_iteration": "Keep the detection formulation stable; generate a denser zone-balanced localization corpus with multiple leak pipes, diameters, and start times per zone, then evaluate on a fresh sealed L-Town cohort."
+  }
+}
