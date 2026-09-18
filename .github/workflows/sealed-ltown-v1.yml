@@ -1,0 +1,45 @@
+name: sealed-ltown-v1
+
+on:
+  push:
+    branches:
+      - benchmark/public-retrospective-v1
+    paths:
+      - .github/workflows/sealed-ltown-v1.yml
+      - training/ltown_sealed.py
+      - training/ltown_predict.py
+
+jobs:
+  prepare-and-predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install simulation and model dependencies
+        run: python -m pip install "wntr==1.5.0" "scikit-learn>=1.5,<2"
+      - name: Generate sealed L-Town challenge
+        run: python training/ltown_sealed.py --out-dir ltown_work --holdout-count 30 --challenge-id ltown-sealed-001
+      - name: Train and predict without holdout labels
+        run: python training/ltown_predict.py --out-dir ltown_work
+      - name: Capture environment
+        run: python -m pip freeze > ltown_work/public/environment.txt
+      - name: Upload L-Town predictions
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-ltown-v1-predictions
+          path: ltown_work/public/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload withheld L-Town labels
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-ltown-v1-labels
+          path: ltown_work/secret/holdout_labels.json
+          if-no-files-found: error
+          retention-days: 30
