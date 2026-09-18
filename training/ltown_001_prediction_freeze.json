@@ -1,0 +1,44 @@
+{
+  "challenge_id": "ltown-sealed-001",
+  "status": "predictions-frozen-labels-not-downloaded-at-freeze",
+  "workflow_run_id": 35291921830,
+  "workflow_head_sha": "e2c3fe76219b808eeda3c5d059a55544ad23099f",
+  "prediction_artifact": {
+    "id": 10526802753,
+    "github_digest": "sha256:c32007bb0b250905ec2b3041149e58df639009d11dfd327ae9784317b8a33740",
+    "zip_sha256": "c32007bb0b250905ec2b3041149e58df639009d11dfd327ae9784317b8a33740",
+    "challenge_sha256": "de998b130ea7c278f94986676196d696e0c31bdb15e226653ee7331bb60798fa",
+    "holdout_manifest_sha256": "412244e0561c34bc0bb8d35f2a4b7e5496d781b018449c8d92e8a29b58670d93",
+    "prediction_report_sha256": "0b185beead8cc0e144f6e3958b393286b3920b93c885087f3c34f565de13cd2a",
+    "predictions_sha256": "69c9277913682245109e100b511086336df924bc9da7e92e836ceb0eb93be400",
+    "environment_sha256": "e19bf69523f09bfe2073bebdb47156748a6b6579a567389e7694d4b5ea3fc195"
+  },
+  "network": {
+    "name": "L-Town v1.2",
+    "junctions": 783,
+    "pipes": 906,
+    "raw_sensor_count": 37,
+    "pressure_search_zones": 33
+  },
+  "development": {
+    "training_scenarios": 40,
+    "validation_scenarios": 40,
+    "zone_localizer_training_leaks": 66
+  },
+  "detector": {
+    "smooth_window": 4,
+    "threshold": 0.8708695652173912,
+    "validation_early_recall": 0.9393939393939394,
+    "validation_no_leak_false_scenario_fraction": 0.0,
+    "validation_premature_alert_fraction": 0.0
+  },
+  "localizer": {
+    "target": "nearest pressure-sensor graph zone",
+    "zone_classes": 33,
+    "top_k": 5,
+    "observation_hours_after_alert": 5.0
+  },
+  "holdout_scenario_count": 30,
+  "holdout_scenario_ids": [81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],
+  "label_boundary": "No L-Town holdout leak/no-leak, pipe, zone, magnitude, or start-time labels had been downloaded or opened when this freeze was committed."
+}
